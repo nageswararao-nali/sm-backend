@@ -1,0 +1,77 @@
+id,company_name,users,return_percentage,min_base_fare,extra_charge_percentage,additional_pickup_charge,return_percentage_value,is_active,name,mobile,email,address,gst,billing_cycle,waiting_charge_type,loading_charge,address_id,is_discount_applicable,discount_on_waiting_charges,dead_miles_price,is_regular
+3,Cascy Forge India Pvt. Ltd.,"#406,#444,#458,#459,#601,#539,#838,#385,#849,",50,107,0,100,0.75,TRUE,Saravanan,9940126631,saravananstores@cascyforge.com,"Old no.82(New no.87),SIDCO Indl Estate,Ambattur,Chennai- 600098",33AAKCC2313H1Z3,Weekly,T2,150,1604,FALSE,11,0,FALSE
+4,Balaji Industries,"#390,#389,#391,#392,#396,#399,#400,#402,#403,#425,#651,#409,#538,#537,#740,#835,",50,100,0,100,0.75,TRUE,Sachithanantham,NIL,balajiind2@gmail.com,"SP-148A, 3rd Lane, 1st Main Road, Ambattur Industrial Estate, Chennai, Tamil Nadu 600058",33AAAFB2222P1ZR,Weekly,T2,150,972,FALSE,100,0,FALSE
+7,Rajsriya Automotive Industries Pvt. Ltd.,"#627,#870",50,100,0,100,0.75,TRUE,Shankar,9789450142,hrd_Chennai@rajsriya.com,"F31- F34, 8th Cross Main Road, SIPCOT Industrial Park, Irungattukottai, Sriperumbuthur, 602105",33AABCR4226K1ZI,Weekly,T2,150,1339,FALSE,0,0,FALSE
+18,Test,"368,309,312,313,314,315,316,317,318,319,320,321,322,323,324,327,328,329,330,331,332,333,334,339,340,341,343,345,346,348,349,350,351,354,356,358,359,362,367,369,372,373,374,375,376,377,378,379,380,382,383,384,411,418,434,523,592,534,533,599,603,532,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,749,FALSE,0,6,FALSE
+22,Camm Tech Process,"#386,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+23,Excellent Engineers,"#387,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,1988,FALSE,0,6,FALSE
+24,Annai Thread Tools,"#388,",80,150,0,150,0.9,FALSE,Iyappan,9345942286,annai.thread@gmail.com,"95M SP Developed Plot Ambattur Industrial Estate, Chennai, Tamil Nadu",33AABFA1503D1ZI,Weekly,T2,150,,FALSE,100,6,FALSE
+25,Ambattur Heat Treaters Pvt.Ltd.,"#394,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+26,Hwaseung Network India Pvt. Ltd.,"#395,#437,",80,150,0,150,0.9,FALSE,Arun Kumar,NIL,"hsnipurchase@hsiauto.com, hsmimaterials@hsiauto.com","73 A BLOCK NO 100, MEVALURKUPPAM, THANDALAM, Kancheepuram, Tamil Nadu, 602105",33AACCH3447F1ZX,Weekly,T2,150,1368,FALSE,100,6,FALSE
+27,Energec Chem Specialities Pvt. Ltd.,"#397,#405,",80,150,0,150,0.9,FALSE,Ramya,9840678307,ramya@energec.org,"5 th Floor, 505, Delta Wing, Raheja Towers, Anna Salai, Chennai, Tamil Nadu 600002",33AAFCE0572K1ZQ,Weekly,T2,150,,FALSE,100,6,FALSE
+28,Gloplast,"#398,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,1745,FALSE,0,6,FALSE
+29,Aswin Cold Forge,"#401,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,2124,FALSE,0,6,FALSE
+30,Hyeongshin Automotive Industry,"#404,",80,150,0,150,0.9,FALSE,Dinesh,9655948251,hai.purchase@yahoo.com,"224/2, Nageswara Rao Rd, Athipet, Gandhi Nagar, Ambattur Industrial Estate, Chennai, Tamil Nadu 600058",33AAIFH1473N1Z6,Weekly,T2,150,,FALSE,100,6,FALSE
+31,Fabheads Automation India Pvt.Ltd.,"#407,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+32,SV Engineering,"#408,",80,150,0,150,0.9,FALSE,V Ramesh,9444148939,svengg2004@gmail.com,"No. 35A, Vanniar 2nd Street, Korattur, Chennai-600080",33AHYPR4284L1ZE,Bimonthly,T2,150,967,FALSE,100,0,FALSE
+33,Om Murugan Enterprises,"#410,",80,150,0,150,0.9,FALSE,Om Murugan,NA,praveenprakash637@hotmail.com,NA,,Weekly,T2,150,,FALSE,100,6,FALSE
+34,Preci-Com CNC,"#412,",80,150,0,150,0.9,FALSE,Ramesh,9841407398,info@precicomcnc.com,"K-19, Ambattur Industrial Estate, Chennai, Tamil Nadu 600058",33AAGFP7939M1ZN,Weekly,T2,150,,FALSE,100,6,FALSE
+35,Kenjoy,"#414,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+36,Globe Engineering,"#417,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+37,Ayyans Industries,"#420,",80,180,0,150,0.9,FALSE,P Krushnan,9176661976,"ayyanskrushnan@gmail.com, muniraj291972@gmail.com","561,mth Road, Sidco Industrial Estate, Ambattur, Chennai 98.",33ABAPK5178J1ZM,Weekly,T2,150,2271,FALSE,0,0,FALSE
+38,Jai sakthi packaging,"#424,",80,150,0,150,0.9,TRUE,Mohan,9884200477,jaisakthipackaging@gmail.com,"455,Multi industrial nagar,Gerugambakkam,Chennai-128",33BBLPM4842F2ZN,Weekly,T2,150,1137,FALSE,0,14,FALSE
+39,Reutter Innovative Closure Technologies Pvt. Ltd.,"#428,",80,150,0,150,0.9,FALSE,Thanikachalam,8682069695,"n.anandharaja@reutter-group.com , c.thani@reutter-group.com, invoice.in@reutter-group.com","31/21D/B, N.P, Sidco Industrial Estate, Ambattur, Chennai, Tamil Nadu 600098",33AAFCR2687G1ZA,Weekly,T2,150,1426,FALSE,100,6,FALSE
+40,Weldtech Automotive Private Limited,"#429,",80,150,0,150,0.9,TRUE,Joshva,NIL,aruweldtech@gmail.com,"No 14 A, Palla St/ Maha Vishnu Nagar, Agraharam / Korattur, Thiruvallur, Tamil Nadu, 600076",33AACCW9463E1Z8,Weekly,T2,150,,FALSE,100,6,FALSE
+41,Hevea Automotive India Pvt. Ltd.,"#430,",80,150,0,150,0.9,TRUE,Muthu Kumar,NIL,heveaautomotive@gmail.com,"276,Sellaperumal Nagar, Karanthangal, Village, Sriperumbudur, 602105",33AADCH3493C2ZV,Weekly,T2,150,,FALSE,100,0,FALSE
+42,Omega Techniks India Pvt. Ltd.,"#431,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+43,VI Store Luck Telecom,"#432,",80,150,0,150,0.9,TRUE,G Vijay Kumar,9884499995,vijaykumar.g4@vodafoneidea.com,"Shop 2, Plot #3, Thandavamoorthy Nagar, Valsaravakkam, Chennai, Tamil Nadu 600087",,Weekly,T2,150,1554,FALSE,100,6,FALSE
+44,EURO PROCESS AUTOMATIK,"#433,",80,150,0,150,0.9,FALSE,Bharathi,9003045280,admin@epachennai.com,"250C, 10th St, North Phase, Sector II, Sidco Industrial Estate, Ambattur, Chennai, Tamil Nadu 600098",33AFJPP5295G1Z5,Weekly,T1,150,2136,FALSE,100,0,FALSE
+45,Janavi Aram Products,"#435,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+46,Minami Metals Pvt. Ltd.,"#436,",80,150,0,150,0.9,TRUE,Bakiyaraj,NIL,"sales@minamimetals.com, purchase@minamimetals.com, Bakiyaraj1@minamimetals.com","No. 174/1A, Munuswamy Street, Vanagaram 3rd Main Road, Athipet, Chennai-600058",33AADCM2594D1ZP,Weekly,T2,150,2336,FALSE,100,0,FALSE
+47,K.S Engineering Tools,"#440,",50,150,0,150,0.75,TRUE,Sathish,9626028438,"ksengineeringtools@gmail.com, purchaseksengineeringtools@gmail.com","G-84A/S-95, Sidco Estate, Kakkalur, Thiruvallur-602003",33AAKFK3588R1ZH,Weekly,T2,150,2515,FALSE,0,0,FALSE
+48,SRE,"#42,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+49,Jio Mart,"#442,#476,#478,#480,#479,#481,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+50,CV Enterprise,"#446,#447,",80,150,0,150,0.9,TRUE,CV,NA,praveenprakash637@hotmail.com,NA,,Weekly,T2,150,,FALSE,0,6,FALSE
+51,Precision Cold Forge,"#449,#705,",50,150,0,100,0.75,TRUE,Gopal,NA,precisioncoldforge@hotmail.com,"Plot No:01 A1, NEMILI B VILLAGE, BEEMANTHANGAL VILLAGE, SRIPERUMPUDUR TALUK, KANCHIPURAM DISTRICT, Chennai, Tamil Nadu, 602105",33AALFP7309Q1ZM,Weekly,T2,150,1250,FALSE,100,0,FALSE
+52,Maruthi,"#451,#455,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+53,Vidhya Enterprises,"#452,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+54,Good lift tyres,"#453,",80,150,0,150,0.9,TRUE,Raja,9551050814,gltfactory@gmail.com,"No-93, S I D C O Industrial Estate, Ambattur, Ambattur, Chennai, Tamil Nadu 600098",33AADFG7996E1Z7,Weekly,T2,150,,FALSE,100,0,FALSE
+55,Individual,"#454,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+56,SKI Manufacturing,"#456,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+57,Shah,"#457,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+58,Tour and Travels,"#461,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+59,ture and trewals,"#462,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+60,Rahul Vadiva taxi service,"#463,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+61,Sr travels,"#464,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+62,Tata,"#465,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+63,Metchem Industries,"#468,",50,150,0,150,0.75,TRUE,Aravind,7010273737,info@metchemindustries.com,"86E, second Main Road Ambattur Industrial Estate, Chennai, Tamil Nadu 600058",33AABFM7284R1ZN,Weekly,T2,150,1359,FALSE,0,0,FALSE
+64,Quality Pack,"#469,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+65,Akash,"#470,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+66,Cygnus Technical Services Pvt. Ltd.,"#471,",50,180,0,150,0.75,FALSE,Thanigainathan,NA,"purchase@cygnustechnicals.com, admin@cygnustechnicals.com","No. 51/54, Reddy Street, Korattur, Chennai- 600080",33AADCC8759J2ZA,Weekly,T2,150,2344,FALSE,0,0,FALSE
+67,VJV,"#474,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+68,GTK Tools and Services,"#475,#544,#545,#643,",80,180,0,150,0.9,FALSE,Arun,NA,gtktools2003@gmail.com,"No. 76, MTH Road, Mannurpet, Padi, Chennai 600050",33AAGFG1067M1ZD,Weekly,T2,150,1907,FALSE,0,0,FALSE
+69,CCRI NAGPUR,"#477,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+70,Vedant company,"#482,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+71,Winmach Automations Pvt. Ltd.,"#427,#421,",80,150,0,150,0.9,TRUE,Nagaraj,9094037123,"winmachindia@gmail.com, purchase@winmachindia.com","Plot No. 52 & 53, Kalpaga, Raja Gopalan St, Athipet, Natesan Nagar, Periya Colony, Chennai, 600058",33AAACW6125B1ZV,Bimonthly,T2,150,1609,FALSE,100,0,FALSE
+72,Austopearl foundary Technologies,"#419,",80,150,0,150,0.9,TRUE,Umapathy,8124842541,umalapathyv@gmail.com,"No 76, Kundrathur Main Rd, Kundrathur, Chennai, Tamil Nadu 600069",33AJBPA4741J1ZN,Weekly,T2,200,1397,FALSE,0,0,FALSE
+73,Ram Rudra Industries,"#393,#858,",80,150,0,150,0.9,TRUE,Daniel,9841425252,"ramrudhra@gmail.com, danilidi2012@gmail.com","120A, Tiny shed, Godrej Rd, Ambattur, Chennai, Tamil Nadu 600058",,Weekly,T2,150,1349,FALSE,100,0,FALSE
+74,KRSV Innovative Auto Solutions Pvt Ltd,"#605,#604,#588,#598,",50,150,0,150,0.75,FALSE,Saravanan,8970029555,saravanan.m@koovers.in,"No. 72&73, Indira Nagar, Vanagaram, Chennai - 600 095",33AAFCK9796H1ZZ,Bimonthly,T2,150,1639,FALSE,100,0,FALSE
+75,Akna Medical Pvt. Ltd.,"#517,",50,100,0,150,0.9,TRUE,Prem,NIL,divagar.d@aknamed.com,"BDP No. 104 (SP) in the Industrial Estate at Ambattur, comprised in Survey Nos. 49 Part and 54 Part of Mannur Village, Ambattur Taluk, Thiruvallur District, Tamil Nadu-600053",33AAQCA8781M1ZW,Weekly,T2,150,1365,FALSE,100,0,FALSE
+76,Mark Engineering,"#518,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+77,Bussiness,"#519,#32,",50,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+78,Sa,"#587,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+79,Radha Precision Pvt.Ltd.,"#460,",80,150,0,150,0.9,TRUE,Arun,9941684157,radhaprecision@gmail.com,"No.31&32, Sri Mahalakshmi Co Operative Nagar,Vazhuthalmedu, Kundrathur,Chennai - 600069",33AADCR0489E1ZK,Weekly,T2,150,1447,FALSE,0,0,FALSE
+80,Easwaran,"#535,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+81,Liberty,"#602,",80,150,0,150,0.9,FALSE,,,,,,,T2,150,,FALSE,0,6,FALSE
+82,Integral Component Manufacturers Pvt. Ltd.,"#628,",50,150,0,150,0.75,TRUE,Manoj,9840817462,purchase@icmpl.com,"B20, SIPCOT Industrial Park, Irungattukottai, Sriperumbuthur Taluk, Kancheepuram, 602105",33AABCI4144D1Z5,Bimonthly,T2,150,1355,FALSE,100,0,FALSE
+83,Sri Hari Industries,"#632,#866",80,150,0,150,0.9,TRUE,Prem Kumar,9092718050,sriharichn@gmail.com,"136/ 469, SIDCO Industrial Estate, 6th Street, 1st Lane, Pattravakkam, Ambattur, Chennai-600098",33APAPS1880F1Z1,Bimonthly,T2,150,1348,FALSE,100,0,FALSE
+84,Sethu Raja Enterprises,"#639,",80,150,0,150,0.9,FALSE,Sethu Raja,8870849998,sethurajaenterprises@gmail.com,"AF1, Anicham Apartments, Vanniar street, Kodambakkam, Chennai",33AAKPL3231G1Z2,,T2,150,1348,FALSE,0,0,FALSE
+85,Dummy Company,"#670,",50,150,0,100,0.75,FALSE,,,,,,,T2,150,1250,FALSE,0,6,FALSE
+86,Kriya Medical Technologies Pvt. Ltd.,"#786,#778,",80,150,0,150,0.9,TRUE,Anand,9597305898,vendor_invoice_submission@kriyamed.com,"B12, SIPCOT Industrial Growth Centre, Mathur village P.O, Sriperumbudur Taluk, Oragadam, 602105",33AAECM7957M2ZV,Monthly,T1,0,,FALSE,100,6,FALSE
+87,Unique Plastic Products,"#802,",80,150,0,150,0.9,TRUE,T Suresh,7373736540,uniqueplasticproducts@gmail.com,"No:6, Thiruverkadu Main Road, Ayapakkam, Chennai 600077",,Weekly,T1,0,,FALSE,100,6,FALSE
+88,Em Pee Industrial Components,"#791,",80,150,0,150,0.9,TRUE,NA,9094131717,subycharles@gmail.com,"No: 561, MTH Road, Ambattur, Chennai- 600098",33CNFPM8161A1ZA,Weekly,T1,0,,FALSE,100,0,FALSE
+89,Super Alloys and castings,",",50,150,0,150,0.75,TRUE,Loganathan,9445230253,"castingssuperalloys@gmail.com, superalloysandcastings@gmail.com","G6E Kakkalur industrial estate, Ambattur 602003",33AFMPA0019G1Z5,Weekly,T2,0,,FALSE,100,0,FALSE
+98,Quantum Biomedicals,"#850,#854,",80,150,0,150,0.9,TRUE,NA,7299027272,info@quantumbiomedicals.in,"No:57, Secretariat Officers Colony, Opp to VS Mani Nagar, 2nd Gate, Madhavaram, Chennai- 600060",33BIHPS2505N1Z2,Bimonthly,,0,,FALSE,100,14,FALSE
+99,GRG Metal finishers,"#859,",50,150,0,150,0.75,TRUE,J Jayaraman,9840140506,grgmetalfinishers@rediffmail.com,"6/81B, Thiruvalluvar Street, Jagadambigai Nagar, Padi, Chennai 600050",33AAFFG7722E1ZP,Weekly,T1,0,,FALSE,100,0,FALSE
+100,Vee S Vee Industries,#865,80,150,0,150,0.9,TRUE,Sakthi Manikandan,9884136499,"finananceveesvee@gmail.com, plantheadveesvee@gmail.com, ceoveesvee@gmail.com","115, Venkateswara Colony, Old Mahabalipuram Road, Rajiv Gandhi Salai, Kottivakkam, Chennai 600041",33AAOPK1967E1ZO,Weekly,T1,0,,FALSE,100,14,FALSE
+101,Ha-Kar Associates LLP,#860,80,150,0,150,0.9,TRUE,Admin,7305069633,hkthgd23@gmail.com,"37, Govindan street , Ayyavoo Naidu colony, Aminjikarai, Chennai 600029",33AAPFH6689H1ZS,Weekly,T1,0,,FALSE,100,14,FALSE

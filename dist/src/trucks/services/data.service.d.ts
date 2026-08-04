@@ -1,0 +1,31 @@
+import { Repository } from 'typeorm';
+import { ShopsEntity } from '../models/shop.entity';
+import { UtilsService } from 'src/utils/services/utils.service';
+import { ConfigService } from '@nestjs/config';
+import { RateDetailsEntity } from '../models/gmRates';
+import { CustomerCompanyEntity } from '../models/cusomerCompanyDetails';
+import { SpecialAddressEntity } from 'src/users/models/specialAddress.entity';
+import { BookingEntity } from 'src/bookings/models/booking.entity';
+import { BookingStatusEntity } from 'src/bookings/models/bookingStatus.entity';
+import { CustomerAddressRatesEntity } from '../models/customerAddressRates.entity';
+export declare class DataService {
+    private shopsRepo;
+    private gmRates;
+    private customerCompany;
+    private splAddressRepo;
+    private bookingRepository;
+    private bsRepo;
+    private carRepo;
+    private utilsService;
+    private configService;
+    constructor(shopsRepo: Repository<ShopsEntity>, gmRates: Repository<RateDetailsEntity>, customerCompany: Repository<CustomerCompanyEntity>, splAddressRepo: Repository<SpecialAddressEntity>, bookingRepository: Repository<BookingEntity>, bsRepo: Repository<BookingStatusEntity>, carRepo: Repository<CustomerAddressRatesEntity>, utilsService: UtilsService, configService: ConfigService);
+    updateGMRates: (reqBody: any) => Promise<any>;
+    updateCompanyData: (reqBody: any) => Promise<any>;
+    feedSpecialAddress: (reqBody: any) => Promise<any>;
+    updateMultiBookingId: (reqBody: any) => Promise<any>;
+    cTimeUpdatesOld: (reqBody: any) => Promise<any>;
+    cTimeUpdates: (reqBody: any) => Promise<any>;
+    updateBookingTimes: (reqBody: any) => Promise<any>;
+    formBookingData: (reqBody: any) => Promise<any>;
+    feedCompanyAddressRates: (reqBody: any) => Promise<any>;
+}

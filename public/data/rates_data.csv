@@ -1,0 +1,617 @@
+id,quantity,base_rate,rate_per_km,loading,unloading,loading_unloading,company_id,company_name
+7,50,50,14,100,100,200,0,
+8,500,125,28,150,150,300,0,
+9,750,150,30,150,150,300,0,
+10,1000,150,32,150,150,300,0,
+11,1500,150,34,200,200,400,0,
+12,2000,350,36,200,200,400,0,
+13,2500,500,46,200,200,400,0,
+14,10000,500,46,200,200,400,0,
+15,50,50,14,100,100,200,84,Sethu Raja Enterprises
+16,500,125,28,150,150,300,84,Sethu Raja Enterprises
+17,750,150,30,150,150,300,84,Sethu Raja Enterprises
+18,1000,150,32,150,150,300,84,Sethu Raja Enterprises
+19,1500,150,34,200,200,400,84,Sethu Raja Enterprises
+20,2000,350,36,200,200,400,84,Sethu Raja Enterprises
+21,2500,500,46,200,200,400,84,Sethu Raja Enterprises
+22,10000,500,46,200,200,400,84,Sethu Raja Enterprises
+23,50,50,14,100,100,200,86,Kriya Medical Technologies Pvt. Ltd.
+24,500,125,28,150,150,300,86,Kriya Medical Technologies Pvt. Ltd.
+25,750,150,30,150,150,300,86,Kriya Medical Technologies Pvt. Ltd.
+26,1000,150,32,150,150,300,86,Kriya Medical Technologies Pvt. Ltd.
+27,1500,150,34,200,200,400,86,Kriya Medical Technologies Pvt. Ltd.
+28,2000,350,36,200,200,400,86,Kriya Medical Technologies Pvt. Ltd.
+29,2500,500,46,200,200,400,86,Kriya Medical Technologies Pvt. Ltd.
+30,10000,500,46,200,200,400,86,Kriya Medical Technologies Pvt. Ltd.
+31,50,50,14,100,100,200,74,KRSV Innovative Auto Solutions Pvt Ltd
+32,500,125,28,150,150,300,74,KRSV Innovative Auto Solutions Pvt Ltd
+33,750,150,30,150,150,300,74,KRSV Innovative Auto Solutions Pvt Ltd
+34,1000,150,30,150,150,300,74,KRSV Innovative Auto Solutions Pvt Ltd
+35,1500,150,30,200,200,400,74,KRSV Innovative Auto Solutions Pvt Ltd
+36,2000,150,30,200,200,400,74,KRSV Innovative Auto Solutions Pvt Ltd
+37,2500,150,30,200,200,400,74,KRSV Innovative Auto Solutions Pvt Ltd
+38,10000,150,30,200,200,400,74,KRSV Innovative Auto Solutions Pvt Ltd
+39,50,50,14,100,100,200,70,Vedant company
+40,500,125,28,150,150,300,70,Vedant company
+41,750,150,30,150,150,300,70,Vedant company
+42,1000,150,32,150,150,300,70,Vedant company
+43,1500,150,34,200,200,400,70,Vedant company
+44,2000,350,36,200,200,400,70,Vedant company
+45,2500,500,46,200,200,400,70,Vedant company
+46,10000,500,46,200,200,400,70,Vedant company
+47,50,50,14,100,100,200,76,Mark Engineering
+48,500,125,28,150,150,300,76,Mark Engineering
+49,750,150,30,150,150,300,76,Mark Engineering
+50,1000,150,32,150,150,300,76,Mark Engineering
+51,1500,150,34,200,200,400,76,Mark Engineering
+52,2000,350,36,200,200,400,76,Mark Engineering
+53,2500,500,46,200,200,400,76,Mark Engineering
+54,10000,500,46,200,200,400,76,Mark Engineering
+55,50,50,14,100,100,200,78,Sa
+56,500,125,28,150,150,300,78,Sa
+57,750,150,30,150,150,300,78,Sa
+58,1000,150,32,150,150,300,78,Sa
+59,1500,150,34,200,200,400,78,Sa
+60,2000,350,36,200,200,400,78,Sa
+61,2500,500,46,200,200,400,78,Sa
+62,10000,500,46,200,200,400,78,Sa
+63,50,50,14,100,100,200,49,Jio Mart
+64,500,125,28,150,150,300,49,Jio Mart
+65,750,150,30,150,150,300,49,Jio Mart
+66,1000,150,32,150,150,300,49,Jio Mart
+67,1500,150,34,200,200,400,49,Jio Mart
+68,2000,350,36,200,200,400,49,Jio Mart
+69,2500,500,46,200,200,400,49,Jio Mart
+70,10000,500,46,200,200,400,49,Jio Mart
+71,50,50,14,100,100,200,48,SRE
+72,500,125,28,150,150,300,48,SRE
+73,750,150,30,150,150,300,48,SRE
+74,1000,150,32,150,150,300,48,SRE
+75,1500,150,34,200,200,400,48,SRE
+76,2000,350,36,200,200,400,48,SRE
+77,2500,500,46,200,200,400,48,SRE
+78,10000,500,46,200,200,400,48,SRE
+79,50,50,14,100,100,200,80,Easwaran
+80,500,125,28,150,150,300,80,Easwaran
+81,750,150,30,150,150,300,80,Easwaran
+82,1000,150,32,150,150,300,80,Easwaran
+83,1500,150,34,200,200,400,80,Easwaran
+84,2000,350,36,200,200,400,80,Easwaran
+85,2500,500,46,200,200,400,80,Easwaran
+86,10000,500,46,200,200,400,80,Easwaran
+87,50,50,14,100,100,200,81,Liberty
+88,500,125,28,150,150,300,81,Liberty
+89,750,150,30,150,150,300,81,Liberty
+90,1000,150,32,150,150,300,81,Liberty
+91,1500,150,34,200,200,400,81,Liberty
+92,2000,350,36,200,200,400,81,Liberty
+93,2500,500,46,200,200,400,81,Liberty
+94,10000,500,46,200,200,400,81,Liberty
+95,50,50,14,100,100,200,18,Test
+96,500,125,28,150,150,300,18,Test
+97,750,150,30,150,150,300,18,Test
+98,1000,150,32,150,150,300,18,Test
+99,1500,150,34,200,200,400,18,Test
+100,2000,350,36,200,200,400,18,Test
+101,2500,500,46,200,200,400,18,Test
+102,10000,500,46,200,200,400,18,Test
+103,50,50,14,100,100,200,23,Excellent Engineers
+104,500,125,28,150,150,300,23,Excellent Engineers
+105,750,150,30,150,150,300,23,Excellent Engineers
+106,1000,150,32,150,150,300,23,Excellent Engineers
+107,1500,150,34,200,200,400,23,Excellent Engineers
+108,2000,350,36,200,200,400,23,Excellent Engineers
+109,2500,500,46,200,200,400,23,Excellent Engineers
+110,10000,500,46,200,200,400,23,Excellent Engineers
+111,50,50,14,100,100,200,28,Gloplast
+112,500,125,28,150,150,300,28,Gloplast
+113,750,150,30,150,150,300,28,Gloplast
+114,1000,150,32,150,150,300,28,Gloplast
+115,1500,150,34,200,200,400,28,Gloplast
+116,2000,350,36,200,200,400,28,Gloplast
+117,2500,500,46,200,200,400,28,Gloplast
+118,10000,500,46,200,200,400,28,Gloplast
+120,500,125,28,150,150,300,29,Aswin Cold Forge
+121,750,150,30,150,150,300,29,Aswin Cold Forge
+123,1500,150,34,200,200,400,29,Aswin Cold Forge
+124,2000,350,36,200,200,400,29,Aswin Cold Forge
+125,2500,500,46,200,200,400,29,Aswin Cold Forge
+126,10000,500,46,200,200,400,29,Aswin Cold Forge
+127,50,50,14,100,100,200,85,Dummy Company
+128,500,125,28,150,150,300,85,Dummy Company
+129,750,150,30,150,150,300,85,Dummy Company
+130,1000,150,32,150,150,300,85,Dummy Company
+131,1500,150,34,200,200,400,85,Dummy Company
+132,2000,350,36,200,200,400,85,Dummy Company
+133,2500,500,46,200,200,400,85,Dummy Company
+134,10000,500,46,200,200,400,85,Dummy Company
+135,50,50,14,100,100,200,22,Camm Tech Process
+136,500,125,28,150,150,300,22,Camm Tech Process
+138,1000,150,32,150,150,300,22,Camm Tech Process
+139,1500,150,34,200,200,400,22,Camm Tech Process
+140,2000,350,36,200,200,400,22,Camm Tech Process
+141,2500,500,46,200,200,400,22,Camm Tech Process
+142,10000,500,46,200,200,400,22,Camm Tech Process
+143,50,50,14,100,100,200,25,Ambattur Heat Treaters Pvt.Ltd.
+144,500,125,28,150,150,300,25,Ambattur Heat Treaters Pvt.Ltd.
+145,750,150,30,150,150,300,25,Ambattur Heat Treaters Pvt.Ltd.
+146,1000,150,32,150,150,300,25,Ambattur Heat Treaters Pvt.Ltd.
+147,1500,150,34,200,200,400,25,Ambattur Heat Treaters Pvt.Ltd.
+148,2000,350,36,200,200,400,25,Ambattur Heat Treaters Pvt.Ltd.
+149,2500,500,46,200,200,400,25,Ambattur Heat Treaters Pvt.Ltd.
+150,10000,500,46,200,200,400,25,Ambattur Heat Treaters Pvt.Ltd.
+151,50,50,14,100,100,200,31,Fabheads Automation India Pvt.Ltd.
+153,750,150,30,150,150,300,31,Fabheads Automation India Pvt.Ltd.
+154,1000,150,32,150,150,300,31,Fabheads Automation India Pvt.Ltd.
+155,1500,150,34,200,200,400,31,Fabheads Automation India Pvt.Ltd.
+156,2000,350,36,200,200,400,31,Fabheads Automation India Pvt.Ltd.
+157,2500,500,46,200,200,400,31,Fabheads Automation India Pvt.Ltd.
+158,10000,500,46,200,200,400,31,Fabheads Automation India Pvt.Ltd.
+159,50,50,14,100,100,200,42,Omega Techniks India Pvt. Ltd.
+160,500,125,28,150,150,300,42,Omega Techniks India Pvt. Ltd.
+161,750,150,30,150,150,300,42,Omega Techniks India Pvt. Ltd.
+162,1000,150,32,150,150,300,42,Omega Techniks India Pvt. Ltd.
+163,1500,150,34,200,200,400,42,Omega Techniks India Pvt. Ltd.
+164,2000,350,36,200,200,400,42,Omega Techniks India Pvt. Ltd.
+165,2500,500,46,200,200,400,42,Omega Techniks India Pvt. Ltd.
+166,10000,500,46,200,200,400,42,Omega Techniks India Pvt. Ltd.
+168,500,125,28,150,150,300,45,Janavi Aram Products
+169,750,150,30,150,150,300,45,Janavi Aram Products
+170,1000,150,32,150,150,300,45,Janavi Aram Products
+171,1500,150,34,200,200,400,45,Janavi Aram Products
+172,2000,350,36,200,200,400,45,Janavi Aram Products
+173,2500,500,46,200,200,400,45,Janavi Aram Products
+174,10000,500,46,200,200,400,45,Janavi Aram Products
+175,50,50,14,100,100,200,73,Ram Rudra Industries
+176,500,180,34,150,150,300,73,Ram Rudra Industries
+177,750,180,34,150,150,300,73,Ram Rudra Industries
+178,1000,180,34,150,150,300,73,Ram Rudra Industries
+179,1500,180,34,200,200,400,73,Ram Rudra Industries
+180,2000,350,36,200,200,400,73,Ram Rudra Industries
+181,2500,500,46,200,200,400,73,Ram Rudra Industries
+183,50,50,14,100,100,200,68,GTK Tools and Services
+184,500,180,28,150,150,300,68,GTK Tools and Services
+185,750,180,30,150,150,300,68,GTK Tools and Services
+186,1000,180,32,150,150,300,68,GTK Tools and Services
+187,1500,180,34,200,200,400,68,GTK Tools and Services
+188,2000,350,36,200,200,400,68,GTK Tools and Services
+189,2500,500,46,200,200,400,68,GTK Tools and Services
+190,10000,500,46,200,200,400,68,GTK Tools and Services
+191,50,50,14,100,100,200,71,Winmach Automations Pvt. Ltd.
+192,500,125,28,150,150,300,71,Winmach Automations Pvt. Ltd.
+193,750,150,30,150,150,300,71,Winmach Automations Pvt. Ltd.
+194,1000,150,32,150,150,300,71,Winmach Automations Pvt. Ltd.
+195,1500,150,34,200,200,400,71,Winmach Automations Pvt. Ltd.
+196,2000,350,36,200,200,400,71,Winmach Automations Pvt. Ltd.
+198,10000,500,46,200,200,400,71,Winmach Automations Pvt. Ltd.
+199,50,50,14,100,100,200,50,CV Enterprise
+200,500,125,28,150,150,300,50,CV Enterprise
+201,750,150,30,150,150,300,50,CV Enterprise
+202,1000,150,32,150,150,300,50,CV Enterprise
+203,1500,150,34,200,200,400,50,CV Enterprise
+204,2000,350,36,200,200,400,50,CV Enterprise
+205,2500,500,46,200,200,400,50,CV Enterprise
+206,10000,500,46,200,200,400,50,CV Enterprise
+207,50,50,14,100,100,200,41,Hevea Automotive India Pvt. Ltd.
+208,500,125,28,150,150,300,41,Hevea Automotive India Pvt. Ltd.
+209,750,150,30,150,150,300,41,Hevea Automotive India Pvt. Ltd.
+210,1000,150,32,150,150,300,41,Hevea Automotive India Pvt. Ltd.
+211,1500,150,34,200,200,400,41,Hevea Automotive India Pvt. Ltd.
+213,2500,500,46,200,200,400,41,Hevea Automotive India Pvt. Ltd.
+214,10000,500,46,200,200,400,41,Hevea Automotive India Pvt. Ltd.
+215,50,50,14,100,100,200,40,Weldtech Automotive Private Limited
+216,500,125,28,150,150,300,40,Weldtech Automotive Private Limited
+217,750,150,30,150,150,300,40,Weldtech Automotive Private Limited
+218,1000,150,32,150,150,300,40,Weldtech Automotive Private Limited
+219,1500,150,34,200,200,400,40,Weldtech Automotive Private Limited
+220,2000,350,36,200,200,400,40,Weldtech Automotive Private Limited
+221,2500,500,46,200,200,400,40,Weldtech Automotive Private Limited
+222,10000,500,46,200,200,400,40,Weldtech Automotive Private Limited
+223,50,50,14,100,100,200,33,Om Murugan Enterprises
+224,500,125,28,150,150,300,33,Om Murugan Enterprises
+225,750,150,30,150,150,300,33,Om Murugan Enterprises
+226,1000,150,32,150,150,300,33,Om Murugan Enterprises
+228,2000,350,36,200,200,400,33,Om Murugan Enterprises
+229,2500,500,46,200,200,400,33,Om Murugan Enterprises
+230,10000,500,46,200,200,400,33,Om Murugan Enterprises
+231,50,50,14,100,100,200,83,Sri Hari Industries
+232,500,125,28,150,150,300,83,Sri Hari Industries
+233,750,150,30,150,150,300,83,Sri Hari Industries
+234,1000,150,32,150,150,300,83,Sri Hari Industries
+235,1500,150,34,200,200,400,83,Sri Hari Industries
+236,2000,350,36,200,200,400,83,Sri Hari Industries
+237,2500,500,46,200,200,400,83,Sri Hari Industries
+238,10000,500,46,200,200,400,83,Sri Hari Industries
+239,50,50,14,100,100,200,72,Austopearl foundary Technologies
+240,500,125,28,150,150,300,72,Austopearl foundary Technologies
+241,750,150,30,150,150,300,72,Austopearl foundary Technologies
+243,1500,150,34,200,200,400,72,Austopearl foundary Technologies
+244,2000,350,36,200,200,400,72,Austopearl foundary Technologies
+245,2500,500,46,200,200,400,72,Austopearl foundary Technologies
+246,10000,500,46,200,200,400,72,Austopearl foundary Technologies
+247,50,50,14,100,100,200,89,Super Alloys and castings
+248,500,125,28,150,150,300,89,Super Alloys and castings
+249,750,150,28,150,150,300,89,Super Alloys and castings
+250,1000,150,28,150,150,300,89,Super Alloys and castings
+251,1500,150,28,200,200,400,89,Super Alloys and castings
+252,2000,350,28,200,200,400,89,Super Alloys and castings
+253,2500,500,28,200,200,400,89,Super Alloys and castings
+254,10000,500,28,200,200,400,89,Super Alloys and castings
+256,500,150,32,150,150,300,82,Integral Component Manufacturers Pvt. Ltd.
+257,750,150,32,150,150,300,82,Integral Component Manufacturers Pvt. Ltd.
+259,1500,150,32,200,200,400,82,Integral Component Manufacturers Pvt. Ltd.
+260,2000,150,32,200,200,400,82,Integral Component Manufacturers Pvt. Ltd.
+261,2500,150,32,200,200,400,82,Integral Component Manufacturers Pvt. Ltd.
+262,10000,150,32,200,200,400,82,Integral Component Manufacturers Pvt. Ltd.
+263,50,50,14,100,100,200,79,Radha Precision Pvt.Ltd.
+264,500,125,28,150,150,300,79,Radha Precision Pvt.Ltd.
+265,750,150,30,150,150,300,79,Radha Precision Pvt.Ltd.
+266,1000,150,32,150,150,300,79,Radha Precision Pvt.Ltd.
+267,1500,150,34,200,200,400,79,Radha Precision Pvt.Ltd.
+268,2000,350,36,200,200,400,79,Radha Precision Pvt.Ltd.
+269,2500,500,46,200,200,400,79,Radha Precision Pvt.Ltd.
+270,10000,500,46,200,200,400,79,Radha Precision Pvt.Ltd.
+271,50,50,14,100,100,200,32,SV Engineering
+272,500,125,28,150,150,300,32,SV Engineering
+274,1000,150,32,150,150,300,32,SV Engineering
+275,1500,150,34,200,200,400,32,SV Engineering
+276,2000,350,36,200,200,400,32,SV Engineering
+277,2500,500,46,200,200,400,32,SV Engineering
+278,10000,500,46,200,200,400,32,SV Engineering
+279,50,50,14,100,100,200,30,Hyeongshin Automotive Industry
+280,500,125,28,150,150,300,30,Hyeongshin Automotive Industry
+281,750,150,30,150,150,300,30,Hyeongshin Automotive Industry
+282,1000,150,32,150,150,300,30,Hyeongshin Automotive Industry
+283,1500,150,34,200,200,400,30,Hyeongshin Automotive Industry
+284,2000,350,36,200,200,400,30,Hyeongshin Automotive Industry
+285,2500,500,46,200,200,400,30,Hyeongshin Automotive Industry
+286,10000,500,46,200,200,400,30,Hyeongshin Automotive Industry
+287,50,50,14,100,100,200,24,Annai Thread Tools
+289,750,150,30,150,150,300,24,Annai Thread Tools
+290,1000,150,32,150,150,300,24,Annai Thread Tools
+291,1500,150,34,200,200,400,24,Annai Thread Tools
+292,2000,350,36,200,200,400,24,Annai Thread Tools
+293,2500,500,46,200,200,400,24,Annai Thread Tools
+294,10000,500,46,200,200,400,24,Annai Thread Tools
+295,50,50,14,100,100,200,77,Bussiness
+296,500,125,28,150,150,300,77,Bussiness
+297,750,150,30,150,150,300,77,Bussiness
+298,1000,150,32,150,150,300,77,Bussiness
+299,1500,150,34,200,200,400,77,Bussiness
+300,2000,350,36,200,200,400,77,Bussiness
+301,2500,500,46,200,200,400,77,Bussiness
+302,10000,500,46,200,200,400,77,Bussiness
+304,500,125,28,150,150,300,87,Unique Plastic Products
+305,750,150,30,150,150,300,87,Unique Plastic Products
+306,1000,150,32,150,150,300,87,Unique Plastic Products
+307,1500,150,52,200,200,400,87,Unique Plastic Products
+308,2000,350,38,200,200,400,87,Unique Plastic Products
+309,2500,500,46,200,200,400,87,Unique Plastic Products
+310,10000,500,118,200,200,400,87,Unique Plastic Products
+311,50,50,14,100,100,200,69,CCRI NAGPUR
+312,500,125,28,150,150,300,69,CCRI NAGPUR
+313,750,150,30,150,150,300,69,CCRI NAGPUR
+314,1000,150,32,150,150,300,69,CCRI NAGPUR
+315,1500,150,34,200,200,400,69,CCRI NAGPUR
+316,2000,350,36,200,200,400,69,CCRI NAGPUR
+317,2500,500,46,200,200,400,69,CCRI NAGPUR
+319,50,50,14,100,100,200,75,Akna Medical Pvt. Ltd.
+320,500,125,28,150,150,300,75,Akna Medical Pvt. Ltd.
+321,750,150,30,150,150,300,75,Akna Medical Pvt. Ltd.
+322,1000,150,32,150,150,300,75,Akna Medical Pvt. Ltd.
+323,1500,150,34,200,200,400,75,Akna Medical Pvt. Ltd.
+324,2000,350,36,200,200,400,75,Akna Medical Pvt. Ltd.
+325,2500,500,46,200,200,400,75,Akna Medical Pvt. Ltd.
+326,10000,500,46,200,200,400,75,Akna Medical Pvt. Ltd.
+327,50,50,14,100,100,200,27,Energec Chem Specialities Pvt. Ltd.
+328,500,125,28,150,150,300,27,Energec Chem Specialities Pvt. Ltd.
+329,750,150,30,150,150,300,27,Energec Chem Specialities Pvt. Ltd.
+330,1000,150,32,150,150,300,27,Energec Chem Specialities Pvt. Ltd.
+331,1500,150,34,200,200,400,27,Energec Chem Specialities Pvt. Ltd.
+332,2000,350,36,200,200,400,27,Energec Chem Specialities Pvt. Ltd.
+334,10000,500,46,200,200,400,27,Energec Chem Specialities Pvt. Ltd.
+335,50,50,14,100,100,200,98,Quantum Biomedicals
+336,500,125,28,150,150,300,98,Quantum Biomedicals
+337,750,150,43,150,150,300,98,Quantum Biomedicals
+338,1000,150,43,150,150,300,98,Quantum Biomedicals
+339,1500,150,43,200,200,400,98,Quantum Biomedicals
+340,2000,150,43,200,200,400,98,Quantum Biomedicals
+341,2500,150,43,200,200,400,98,Quantum Biomedicals
+342,10000,150,43,200,200,400,98,Quantum Biomedicals
+343,50,50,14,100,100,200,3,Cascy Forge India Pvt. Ltd.
+344,500,107,28,150,150,300,3,Cascy Forge India Pvt. Ltd.
+345,750,107,30,150,150,300,3,Cascy Forge India Pvt. Ltd.
+346,1000,107,32,150,150,300,3,Cascy Forge India Pvt. Ltd.
+347,1500,107,34,200,200,400,3,Cascy Forge India Pvt. Ltd.
+349,2500,107,46,200,200,400,3,Cascy Forge India Pvt. Ltd.
+350,10000,107,46,200,200,400,3,Cascy Forge India Pvt. Ltd.
+351,50,50,28,100,100,200,99,GRG Metal finishers
+352,500,125,28,150,150,300,99,GRG Metal finishers
+353,750,150,28,150,150,300,99,GRG Metal finishers
+354,1000,150,28,150,150,300,99,GRG Metal finishers
+355,1500,150,28,200,200,400,99,GRG Metal finishers
+356,2000,350,28,200,200,400,99,GRG Metal finishers
+357,2500,500,28,200,200,400,99,GRG Metal finishers
+358,10000,500,28,200,200,400,99,GRG Metal finishers
+359,50,50,14,100,100,200,4,Balaji Industries
+360,500,100,28,150,150,300,4,Balaji Industries
+361,750,100,30,150,150,300,4,Balaji Industries
+362,1000,100,32,150,150,300,4,Balaji Industries
+364,2000,150,34,200,200,400,4,Balaji Industries
+365,2500,150,34,200,200,400,4,Balaji Industries
+366,10000,150,34,200,200,400,4,Balaji Industries
+367,50,50,14,100,100,200,100,Vee S Vee Industries
+368,500,125,28,150,150,300,100,Vee S Vee Industries
+369,750,150,30,150,150,300,100,Vee S Vee Industries
+370,1000,150,32,150,150,300,100,Vee S Vee Industries
+371,1500,150,34,200,200,400,100,Vee S Vee Industries
+372,2000,350,36,200,200,400,100,Vee S Vee Industries
+373,2500,500,46,200,200,400,100,Vee S Vee Industries
+374,10000,500,46,200,200,400,100,Vee S Vee Industries
+375,50,50,14,100,100,200,88,Em Pee Industrial Components
+376,500,125,32,150,150,300,88,Em Pee Industrial Components
+377,750,150,32,150,150,300,88,Em Pee Industrial Components
+379,1500,150,34,200,200,400,88,Em Pee Industrial Components
+380,2000,350,36,200,200,400,88,Em Pee Industrial Components
+381,2500,500,46,200,200,400,88,Em Pee Industrial Components
+382,10000,500,46,200,200,400,88,Em Pee Industrial Components
+383,50,50,14,100,100,200,39,Reutter Innovative Closure Technologies Pvt. Ltd.
+384,500,125,28,150,150,300,39,Reutter Innovative Closure Technologies Pvt. Ltd.
+385,750,150,30,150,150,300,39,Reutter Innovative Closure Technologies Pvt. Ltd.
+386,1000,150,32,150,150,300,39,Reutter Innovative Closure Technologies Pvt. Ltd.
+387,1500,150,34,200,200,400,39,Reutter Innovative Closure Technologies Pvt. Ltd.
+388,2000,350,36,200,200,400,39,Reutter Innovative Closure Technologies Pvt. Ltd.
+389,2500,500,46,200,200,400,39,Reutter Innovative Closure Technologies Pvt. Ltd.
+390,10000,500,46,200,200,400,39,Reutter Innovative Closure Technologies Pvt. Ltd.
+392,500,125,32,150,150,300,51,Precision Cold Forge
+393,750,150,32,150,150,300,51,Precision Cold Forge
+395,1500,150,32,200,200,400,51,Precision Cold Forge
+396,2000,150,32,200,200,400,51,Precision Cold Forge
+397,2500,150,32,200,200,400,51,Precision Cold Forge
+398,10000,150,32,200,200,400,51,Precision Cold Forge
+399,50,50,14,100,100,200,37,Ayyans Industries
+400,500,180,28,150,150,300,37,Ayyans Industries
+401,750,180,30,150,150,300,37,Ayyans Industries
+402,1000,180,32,150,150,300,37,Ayyans Industries
+403,1500,180,34,200,200,400,37,Ayyans Industries
+404,2000,350,36,200,200,400,37,Ayyans Industries
+405,2500,500,46,200,200,400,37,Ayyans Industries
+406,10000,500,46,200,200,400,37,Ayyans Industries
+407,50,50,14,100,100,200,52,Maruthi
+408,500,125,28,150,150,300,52,Maruthi
+410,1000,150,32,150,150,300,52,Maruthi
+411,1500,150,34,200,200,400,52,Maruthi
+412,2000,350,36,200,200,400,52,Maruthi
+413,2500,500,46,200,200,400,52,Maruthi
+414,10000,500,46,200,200,400,52,Maruthi
+415,50,50,14,100,100,200,53,Vidhya Enterprises
+416,500,125,28,150,150,300,53,Vidhya Enterprises
+417,750,150,30,150,150,300,53,Vidhya Enterprises
+418,1000,150,32,150,150,300,53,Vidhya Enterprises
+419,1500,150,34,200,200,400,53,Vidhya Enterprises
+420,2000,350,36,200,200,400,53,Vidhya Enterprises
+421,2500,500,46,200,200,400,53,Vidhya Enterprises
+422,10000,500,46,200,200,400,53,Vidhya Enterprises
+423,50,50,14,100,100,200,34,Preci-Com CNC
+425,750,150,30,150,150,300,34,Preci-Com CNC
+426,1000,150,32,150,150,300,34,Preci-Com CNC
+427,1500,150,34,200,200,400,34,Preci-Com CNC
+428,2000,350,36,200,200,400,34,Preci-Com CNC
+429,2500,500,46,200,200,400,34,Preci-Com CNC
+430,10000,500,46,200,200,400,34,Preci-Com CNC
+431,50,50,14,100,100,200,55,Individual
+432,500,125,28,150,150,300,55,Individual
+433,750,150,30,150,150,300,55,Individual
+434,1000,150,32,150,150,300,55,Individual
+435,1500,150,34,200,200,400,55,Individual
+436,2000,350,36,200,200,400,55,Individual
+437,2500,500,46,200,200,400,55,Individual
+438,10000,500,46,200,200,400,55,Individual
+440,500,125,28,150,150,300,56,SKI Manufacturing
+441,750,150,30,150,150,300,56,SKI Manufacturing
+442,1000,150,32,150,150,300,56,SKI Manufacturing
+443,1500,150,34,200,200,400,56,SKI Manufacturing
+444,2000,350,36,200,200,400,56,SKI Manufacturing
+445,2500,500,46,200,200,400,56,SKI Manufacturing
+446,10000,500,46,200,200,400,56,SKI Manufacturing
+447,50,50,14,100,100,200,57,Shah
+448,500,125,28,150,150,300,57,Shah
+449,750,150,30,150,150,300,57,Shah
+450,1000,150,32,150,150,300,57,Shah
+451,1500,150,34,200,200,400,57,Shah
+452,2000,350,36,200,200,400,57,Shah
+453,2500,500,46,200,200,400,57,Shah
+455,50,50,14,100,100,200,101,Ha-Kar Associates LLP
+456,500,125,28,150,150,300,101,Ha-Kar Associates LLP
+457,750,150,30,150,150,300,101,Ha-Kar Associates LLP
+458,1000,150,32,150,150,300,101,Ha-Kar Associates LLP
+459,1500,150,34,200,200,400,101,Ha-Kar Associates LLP
+460,2000,350,36,200,200,400,101,Ha-Kar Associates LLP
+461,2500,500,46,200,200,400,101,Ha-Kar Associates LLP
+462,10000,500,46,200,200,400,101,Ha-Kar Associates LLP
+463,50,50,14,100,100,200,35,Kenjoy
+464,500,125,28,150,150,300,35,Kenjoy
+465,750,150,30,150,150,300,35,Kenjoy
+466,1000,150,32,150,150,300,35,Kenjoy
+467,1500,150,34,200,200,400,35,Kenjoy
+468,2000,350,36,200,200,400,35,Kenjoy
+470,10000,500,46,200,200,400,35,Kenjoy
+471,50,50,14,100,100,200,36,Globe Engineering
+472,500,125,28,150,150,300,36,Globe Engineering
+473,750,150,30,150,150,300,36,Globe Engineering
+474,1000,150,32,150,150,300,36,Globe Engineering
+475,1500,150,34,200,200,400,36,Globe Engineering
+476,2000,350,36,200,200,400,36,Globe Engineering
+477,2500,500,46,200,200,400,36,Globe Engineering
+478,10000,500,46,200,200,400,36,Globe Engineering
+479,50,50,14,100,100,200,58,Tour and Travels
+480,500,125,28,150,150,300,58,Tour and Travels
+481,750,150,30,150,150,300,58,Tour and Travels
+482,1000,150,32,150,150,300,58,Tour and Travels
+483,1500,150,34,200,200,400,58,Tour and Travels
+485,2500,500,46,200,200,400,58,Tour and Travels
+486,10000,500,46,200,200,400,58,Tour and Travels
+487,50,50,14,100,100,200,59,ture and trewals
+488,500,125,28,150,150,300,59,ture and trewals
+489,750,150,30,150,150,300,59,ture and trewals
+490,1000,150,32,150,150,300,59,ture and trewals
+491,1500,150,34,200,200,400,59,ture and trewals
+492,2000,350,36,200,200,400,59,ture and trewals
+493,2500,500,46,200,200,400,59,ture and trewals
+494,10000,500,46,200,200,400,59,ture and trewals
+495,50,50,14,100,100,200,60,Rahul Vadiva taxi service
+496,500,125,28,150,150,300,60,Rahul Vadiva taxi service
+497,750,150,30,150,150,300,60,Rahul Vadiva taxi service
+498,1000,150,32,150,150,300,60,Rahul Vadiva taxi service
+500,2000,350,36,200,200,400,60,Rahul Vadiva taxi service
+501,2500,500,46,200,200,400,60,Rahul Vadiva taxi service
+502,10000,500,46,200,200,400,60,Rahul Vadiva taxi service
+503,50,50,14,100,100,200,61,Sr travels
+504,500,125,28,150,150,300,61,Sr travels
+505,750,150,30,150,150,300,61,Sr travels
+506,1000,150,32,150,150,300,61,Sr travels
+507,1500,150,34,200,200,400,61,Sr travels
+508,2000,350,36,200,200,400,61,Sr travels
+509,2500,500,46,200,200,400,61,Sr travels
+510,10000,500,46,200,200,400,61,Sr travels
+511,50,50,14,100,100,200,62,Tata
+512,500,125,28,150,150,300,62,Tata
+513,750,150,30,150,150,300,62,Tata
+515,1500,150,34,200,200,400,62,Tata
+516,2000,350,36,200,200,400,62,Tata
+517,2500,500,46,200,200,400,62,Tata
+518,10000,500,46,200,200,400,62,Tata
+519,50,50,14,100,100,200,64,Quality Pack
+520,500,125,28,150,150,300,64,Quality Pack
+521,750,150,30,150,150,300,64,Quality Pack
+522,1000,150,32,150,150,300,64,Quality Pack
+523,1500,150,34,200,200,400,64,Quality Pack
+524,2000,350,36,200,200,400,64,Quality Pack
+525,2500,500,46,200,200,400,64,Quality Pack
+526,10000,500,46,200,200,400,64,Quality Pack
+119,50,50,14,100,100,200,29,Aswin Cold Forge
+122,1000,150,32,150,150,300,29,Aswin Cold Forge
+137,750,150,30,150,150,300,22,Camm Tech Process
+152,500,125,28,150,150,300,31,Fabheads Automation India Pvt.Ltd.
+167,50,50,14,100,100,200,45,Janavi Aram Products
+182,10000,500,46,200,200,400,73,Ram Rudra Industries
+197,2500,500,46,200,200,400,71,Winmach Automations Pvt. Ltd.
+212,2000,350,36,200,200,400,41,Hevea Automotive India Pvt. Ltd.
+227,1500,150,34,200,200,400,33,Om Murugan Enterprises
+242,1000,150,32,150,150,300,72,Austopearl foundary Technologies
+255,50,50,14,100,100,200,82,Integral Component Manufacturers Pvt. Ltd.
+258,1000,150,32,150,150,300,82,Integral Component Manufacturers Pvt. Ltd.
+273,750,150,30,150,150,300,32,SV Engineering
+288,500,125,28,150,150,300,24,Annai Thread Tools
+303,50,50,14,100,100,200,87,Unique Plastic Products
+318,10000,500,46,200,200,400,69,CCRI NAGPUR
+333,2500,500,46,200,200,400,27,Energec Chem Specialities Pvt. Ltd.
+348,2000,107,36,200,200,400,3,Cascy Forge India Pvt. Ltd.
+363,1500,100,34,200,200,400,4,Balaji Industries
+378,1000,150,32,150,150,300,88,Em Pee Industrial Components
+391,50,50,14,100,100,200,51,Precision Cold Forge
+394,1000,150,32,150,150,300,51,Precision Cold Forge
+409,750,150,30,150,150,300,52,Maruthi
+424,500,125,28,150,150,300,34,Preci-Com CNC
+439,50,50,14,100,100,200,56,SKI Manufacturing
+454,10000,500,46,200,200,400,57,Shah
+469,2500,500,46,200,200,400,35,Kenjoy
+484,2000,350,36,200,200,400,58,Tour and Travels
+499,1500,150,34,200,200,400,60,Rahul Vadiva taxi service
+514,1000,150,32,150,150,300,62,Tata
+527,50,50,14,100,100,200,65,Akash
+528,500,125,28,150,150,300,65,Akash
+529,750,150,30,150,150,300,65,Akash
+530,1000,150,32,150,150,300,65,Akash
+531,1500,150,34,200,200,400,65,Akash
+532,2000,350,36,200,200,400,65,Akash
+533,2500,500,46,200,200,400,65,Akash
+534,10000,500,46,200,200,400,65,Akash
+535,50,50,14,100,100,200,67,VJV
+536,500,125,28,150,150,300,67,VJV
+537,750,150,30,150,150,300,67,VJV
+538,1000,150,32,150,150,300,67,VJV
+539,1500,150,34,200,200,400,67,VJV
+540,2000,350,36,200,200,400,67,VJV
+541,2500,500,46,200,200,400,67,VJV
+542,10000,500,46,200,200,400,67,VJV
+543,50,50,14,100,100,200,26,Hwaseung Network India Pvt. Ltd.
+544,500,125,28,150,150,300,26,Hwaseung Network India Pvt. Ltd.
+545,750,150,30,150,150,300,26,Hwaseung Network India Pvt. Ltd.
+546,1000,150,32,150,150,300,26,Hwaseung Network India Pvt. Ltd.
+547,1500,150,34,200,200,400,26,Hwaseung Network India Pvt. Ltd.
+548,2000,350,36,200,200,400,26,Hwaseung Network India Pvt. Ltd.
+549,2500,500,46,200,200,400,26,Hwaseung Network India Pvt. Ltd.
+550,10000,500,46,200,200,400,26,Hwaseung Network India Pvt. Ltd.
+551,50,50,14,100,100,200,38,Jai sakthi packaging
+552,500,125,28,150,150,300,38,Jai sakthi packaging
+553,750,150,30,150,150,300,38,Jai sakthi packaging
+554,1000,150,32,150,150,300,38,Jai sakthi packaging
+555,1500,150,34,200,200,400,38,Jai sakthi packaging
+556,2000,350,36,200,200,400,38,Jai sakthi packaging
+557,2500,500,46,200,200,400,38,Jai sakthi packaging
+558,10000,500,46,200,200,400,38,Jai sakthi packaging
+559,50,50,14,100,100,200,7,Rajsriya Automotive Industries Pvt. Ltd.
+560,500,125,28,150,150,300,7,Rajsriya Automotive Industries Pvt. Ltd.
+561,750,150,30,150,150,300,7,Rajsriya Automotive Industries Pvt. Ltd.
+562,1000,150,32,150,150,300,7,Rajsriya Automotive Industries Pvt. Ltd.
+563,1500,150,34,200,200,400,7,Rajsriya Automotive Industries Pvt. Ltd.
+564,2000,150,34,200,200,400,7,Rajsriya Automotive Industries Pvt. Ltd.
+565,2500,150,34,200,200,400,7,Rajsriya Automotive Industries Pvt. Ltd.
+566,10000,500,46,200,200,400,7,Rajsriya Automotive Industries Pvt. Ltd.
+567,50,50,14,100,100,200,44,EURO PROCESS AUTOMATIK
+568,500,125,28,150,150,300,44,EURO PROCESS AUTOMATIK
+569,750,150,30,150,150,300,44,EURO PROCESS AUTOMATIK
+570,1000,150,32,150,150,300,44,EURO PROCESS AUTOMATIK
+571,1500,150,34,200,200,400,44,EURO PROCESS AUTOMATIK
+572,2000,350,36,200,200,400,44,EURO PROCESS AUTOMATIK
+573,2500,500,46,200,200,400,44,EURO PROCESS AUTOMATIK
+574,10000,500,46,200,200,400,44,EURO PROCESS AUTOMATIK
+575,50,50,14,100,100,200,66,Cygnus Technical Services Pvt. Ltd.
+576,500,180,28,150,150,300,66,Cygnus Technical Services Pvt. Ltd.
+577,750,180,30,150,150,300,66,Cygnus Technical Services Pvt. Ltd.
+578,1000,180,32,150,150,300,66,Cygnus Technical Services Pvt. Ltd.
+579,1500,180,32,200,200,400,66,Cygnus Technical Services Pvt. Ltd.
+580,2000,180,32,200,200,400,66,Cygnus Technical Services Pvt. Ltd.
+581,2500,180,32,200,200,400,66,Cygnus Technical Services Pvt. Ltd.
+582,10000,180,32,200,200,400,66,Cygnus Technical Services Pvt. Ltd.
+583,50,50,28,100,100,200,63,Metchem Industries
+584,500,125,28,150,150,300,63,Metchem Industries
+585,750,150,28,150,150,300,63,Metchem Industries
+586,1000,150,28,150,150,300,63,Metchem Industries
+587,1500,150,28,200,200,400,63,Metchem Industries
+588,2000,350,28,200,200,400,63,Metchem Industries
+589,2500,500,28,200,200,400,63,Metchem Industries
+590,10000,500,28,200,200,400,63,Metchem Industries
+591,50,50,14,100,100,200,54,Good lift tyres
+592,500,125,28,150,150,300,54,Good lift tyres
+593,750,150,30,150,150,300,54,Good lift tyres
+594,1000,150,32,150,150,300,54,Good lift tyres
+595,1500,150,34,200,200,400,54,Good lift tyres
+596,2000,350,36,200,200,400,54,Good lift tyres
+597,2500,500,46,200,200,400,54,Good lift tyres
+598,10000,500,46,200,200,400,54,Good lift tyres
+599,50,50,28,100,100,200,47,K.S Engineering Tools
+600,500,125,28,150,150,300,47,K.S Engineering Tools
+601,750,150,28,150,150,300,47,K.S Engineering Tools
+602,1000,150,28,150,150,300,47,K.S Engineering Tools
+603,1500,150,28,200,200,400,47,K.S Engineering Tools
+604,2000,150,28,200,200,400,47,K.S Engineering Tools
+605,2500,150,28,200,200,400,47,K.S Engineering Tools
+606,10000,150,28,200,200,400,47,K.S Engineering Tools
+607,50,50,14,100,100,200,46,Minami Metals Pvt. Ltd.
+608,500,125,28,150,150,300,46,Minami Metals Pvt. Ltd.
+609,750,150,30,150,150,300,46,Minami Metals Pvt. Ltd.
+610,1000,150,32,150,150,300,46,Minami Metals Pvt. Ltd.
+611,1500,150,34,200,200,400,46,Minami Metals Pvt. Ltd.
+612,2000,350,36,200,200,400,46,Minami Metals Pvt. Ltd.
+613,2500,500,46,200,200,400,46,Minami Metals Pvt. Ltd.
+614,10000,500,46,200,200,400,46,Minami Metals Pvt. Ltd.
+615,50,50,14,100,100,200,43,VI Store Luck Telecom
+616,500,125,28,150,150,300,43,VI Store Luck Telecom
+617,750,150,30,150,150,300,43,VI Store Luck Telecom
+618,1000,150,32,150,150,300,43,VI Store Luck Telecom
+619,1500,150,34,200,200,400,43,VI Store Luck Telecom
+620,2000,350,36,200,200,400,43,VI Store Luck Telecom
+621,2500,500,46,200,200,400,43,VI Store Luck Telecom
+622,10000,500,46,200,200,400,43,VI Store Luck Telecom

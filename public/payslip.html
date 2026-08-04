@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Payslip</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      font-size: 10pt;
+      color: #2B3557;
+    }
+
+    .container {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    /* ---- HEADER (from dds_new.html) ---- */
+    .header-row {
+      display: -webkit-box;
+      -webkit-box-orient: horizontal;
+      margin-bottom: 6px;
+    }
+
+    .header-row img {
+      width: 70px;
+      height: 60px;
+    }
+
+    .header-info {
+      text-align: center;
+      margin-left: 8pt;
+    }
+
+    .header-info h1 {
+      color: #2E5496;
+      font-family: verdana;
+      font-weight: bold;
+      font-size: 11pt;
+      margin: 0 0 3px 0;
+    }
+
+    .header-info p {
+      color: #2B3557;
+      font-family: Arial, sans-serif;
+      font-size: 7pt;
+      margin: 1px 0;
+    }
+
+    .computer-generated {
+      color: #7E7E7E;
+      font-family: "Times New Roman", serif;
+      font-style: italic;
+      font-size: 6pt;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #2B3557;
+      margin: 5px 0;
+    }
+
+    /* ---- PAYSLIP TITLE ---- */
+    .payslip-title {
+      text-align: center;
+      font-size: 11pt;
+      font-weight: bold;
+      color: #2E5496;
+      margin: 6px 0 8px 0;
+    }
+
+    /* ---- EMPLOYEE INFO TABLE ---- */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 8px;
+      font-size: 9pt;
+    }
+
+    .info-table td {
+      padding: 3px 8px;
+      vertical-align: top;
+    }
+
+    .info-table td.lbl {
+      font-weight: bold;
+      width: 22%;
+      white-space: nowrap;
+    }
+
+    .info-table td.colon {
+      width: 2%;
+    }
+
+    .info-table td.val {
+      width: 26%;
+    }
+
+    /* ---- SALARY TABLE ---- */
+    .salary-table {
+      width: 100%;
+      margin: 0 0 10px 0;
+      border-collapse: collapse;
+      font-size: 9pt;
+      table-layout: fixed;
+    }
+
+    .salary-table th {
+      background-color: #2f4f92;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      padding: 6px 8px;
+      border: 1px solid #2f4f92;
+      font-size: 9pt;
+    }
+
+    .salary-table td {
+      padding: 5px 8px;
+      border: 1px solid #bbb;
+      text-align: center;
+      font-size: 9pt;
+    }
+
+    .salary-table td.row-label {
+      text-align: left;
+    }
+
+    .salary-table tr.total-row td {
+      font-weight: bold;
+      background-color: #e8edf8;
+      border-top: 2px solid #2f4f92;
+    }
+
+    /* ---- NET PAYABLE ---- */
+    .net-payable {
+      width: 100%;
+      margin: 0 0 12px 0;
+      text-align: center;
+      font-weight: bold;
+      font-size: 9pt;
+      padding: 6px;
+    }
+
+    /* ---- SIGNATURE ---- */
+    .signature {
+      margin-top: 16px;
+      font-size: 9pt;
+    }
+
+    .sign-img {
+      width: 120px;
+      margin: 4px 0;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer-note {
+      margin-top: 16px;
+      font-size: 7pt;
+      font-style: italic;
+      text-align: center;
+      color: #7E7E7E;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER (same structure as dds_new.html) -->
+    <div class="header-row">
+      <div>
+        <img src="https://goodmove-assets.s3.ap-south-1.amazonaws.com/regular.png" alt="Good Move Logo" />
+      </div>
+      <div class="header-info">
+        <h1>Good Move Logistics and Transport Pvt. Ltd.</h1>
+        <p>CIN: U63090TN2021PTC141918, PAN: AAICG8978J, GST: 33AAICG8978J1ZX</p>
+        <p>Address: 01 FA, First Floor, IITM Research Park, Kanagam Road Taramani, Adayar, Chennai, Tamil Nadu, India - 600113</p>
+      </div>
+    </div>
+    <hr class="divider" />
+
+    <!-- PAYSLIP TITLE -->
+    <div class="payslip-title">PAYSLIP - {{pay_period}}</div>
+
+    <!-- EMPLOYEE INFO -->
+    <table class="info-table">
+      <tr>
+        <td class="lbl">Employee Name</td><td class="colon">:</td><td class="val">{{employee_name}}</td>
+        <td class="lbl">Designation</td><td class="colon">:</td><td class="val">{{designation}}</td>
+      </tr>
+      <tr>
+        <td class="lbl">PAN Number</td><td class="colon">:</td><td class="val">{{pan_number}}</td>
+        <td class="lbl">Date of Joining</td><td class="colon">:</td><td class="val">{{date_of_joining}}</td>
+      </tr>
+      <tr>
+        <td class="lbl">Pay Period</td><td class="colon">:</td><td class="val">{{pay_period}}</td>
+        <td class="lbl"></td><td class="colon"></td><td class="val"></td>
+      </tr>
+    </table>
+
+    <hr class="divider" />
+
+    <!-- SALARY TABLE -->
+    <table class="salary-table">
+      <thead>
+        <tr>
+          <th style="width:60%; text-align:left;">Earnings</th>
+          <th style="width:40%;">Amount (Rs.)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-label">Salary for {{pay_period}}</td>
+          <td>{{salary}}</td>
+        </tr>
+
+        <!-- <tr class="spacer-row"><td colspan="2"></td></tr> -->
+
+        <tr>
+          <td class="row-label">Deductions</td>
+          <td>{{deductions}}</td>
+        </tr>
+        <tr>
+          <td class="row-label">Benefits</td>
+          <td>{{benefits}}</td>
+        </tr>
+
+        <!-- <tr class="spacer-row"><td colspan="2"></td></tr> -->
+
+        <tr class="total-row">
+          <td class="row-label">Total Earnings</td>
+          <td>{{total_earnings}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- NET PAYABLE -->
+    <div class="net-payable">
+      Net Payable: Rs. {{total_earnings}} &nbsp;|&nbsp; Rupees {{total_earnings_words}}
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature">
+      <p style="font-weight:bold; margin:0;">Employer Signature</p>
+      <img class="sign-img" src="https://goodmove-assets.s3.ap-south-1.amazonaws.com/go_signature.jpg" />
+      <br/>
+      <p style="margin:0;">Gitakrishnan Ramadurai</p>
+      <p style="margin:0;">Director</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-note">*This is a system generated payslip</div>
+
+  </div>
+</body>
+</html>

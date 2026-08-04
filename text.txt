@@ -1,0 +1,173 @@
+
+> goodmovebackend@0.0.1 start:dev
+> nest start --watch
+
+c[[90m2:02:30 PM[0m] Starting compilation in watch mode...
+
+[[90m2:02:34 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:35 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +33ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMulterModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHttpModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmCoreModule dependencies initialized[39m[38;5;3m +2379ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUtilsModule dependencies initialized[39m[38;5;3m +36ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAdminModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBookingsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTrucksModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mToursModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/api}:[39m[38;5;3m +2ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/users}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/sendOtp, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/verifyOtp, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/checkUser, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/register, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/profileUpdate, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/getAllCustomers, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/userDetails, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/updateStatus, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/updateAvailable, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/updateAvailableById, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/addAddress, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/updateAddress/:id, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/deleteAddress/:id, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/getAddress, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/getAddressById, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/updateDeviceToken, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/getNotifications, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/viewNotification, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/getAllCompanies, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/tagCutomerToCompany, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUtilsController {/api/utils}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mTourController {/api/tours}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/tourDetails, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/toursList, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/assignTour, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/startTour, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/uploadOdometer, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/tourDocuments, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/sendTourOtp, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/verifyTourOtp, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/truckerTour, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/rejectTour, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/addTour, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/updateTourDriver, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/sendDeliveryOtp, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/completeTourRoute, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/updateSequence, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/completeTour, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/tourInfo, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/deleteTour/:id, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/updateTourTrips, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tours/addClosedTour, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mBookingController {/api/booking}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/addBooking, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/updateBooking/:id, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/deleteBooking/:id, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/getBookings, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/getTodayBookings, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/getBookingsDetails, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/getBookingDetails, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/acceptBooking, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/confirmBooking, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/tbeBooking, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/cancelByManager, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/cancelByCustomer, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/rejectFare, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/markTrip, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/getDistanceToCC, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/getDistanceToCCBygoogle, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/addTrip, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/getTrips, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/getPendingTrips, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/deleteTrip/:id, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/getBookingsReport, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/updateBookingFare, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/updateBookingWaitingCharge, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/booking/updateBookingTime, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAdminController {/api/admin}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/addConsolidationCenter, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/getConsolidationCenters, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/getCategories, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/sendNotification, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/invoice, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/bulk-invoice, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/sendCustomerNotifications, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mTruckController {/api/trucks}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/trucks, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/trucks, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/trucks/addSession, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/trucks/getSession, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/trucks/truckByOwner, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/trucks/driverByOwner, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/trucks/addTruck, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/trucks/updateTruck/:id, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/trucks/deleteTruck/:id, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/trucks/getTrucks, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mLocationController {/api/location}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/addDriverLocation, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/range, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/getDriversLocations, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/getDriverLocation, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/getDriverLocations, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/getDriverLocationsByDate, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/getDriverLocationsDetails, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/sessionReports, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/driverReports, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/daySummaryReports, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/revenueCalculation, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/revenueCalculationNew, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/revenueCalculationManual, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/showSessionDistances, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/driverGPSSummary, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/calcWaitingChargeTest, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/calcDriverDistanceFromToTimes, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/calcOSMTwoPoints, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/calcOSMMapMatching, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/updateBookingTimes, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/updateTourStatus, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/calcDriverSessionDistanceManual, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/getDistanceFromPoint, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/calcDriverGoogleDistance, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/calcDriverGoogleMapMatchDistance, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/calcDriverGoogleMapMatchDistanceNew, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/location/calcGoogleTourDistance, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mDriverController {/api/driver}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/addDriver, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/addOwner, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/updateOwner/:id, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/deleteOwner/:id, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/getOwners, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/getDriver, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/getOwner, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/updateDriver/:id, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/deleteDriver/:id, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/getDrivers, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/getDriverSession, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/updateDriverSession, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/getDriverSessions, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/getAllSessions, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/createSession, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/updateSession/:id, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/deleteSession/:id, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/addTruckerRate, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/updateTruckerRate/:id, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/truckersRateList, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/driverPaymentCalculation, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/driver/sendInactiveNotification, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9650  - [39m05/12/2023, 2:02:37 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m

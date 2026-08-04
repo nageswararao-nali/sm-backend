@@ -1,0 +1,75 @@
+<style type="text/css">
+  .container {
+    width: 730;
+    background-image: linear-gradient(to bottom right, #ffffff, #30a46c);
+    height: 815;
+    margin-left: -8;
+    margin-top: -8;
+  }
+  .logo {
+    position: absolute;
+    margin-left: 300;
+    width: 250;
+    height: 50;
+    margin-top: 50;
+  }
+  .horizontal-border {
+    width: 130;
+    height: 15;
+    background-image: linear-gradient(to bottom right, #30a46c, #0af684);
+
+    border-radius: 0px 0px 10px 0px;
+  }
+  .vertical-border {
+    width: 15;
+    height: 100;
+    background-image: linear-gradient(to bottom right, #30a46c, #0af684);
+    border-radius: 0px 0px 10px 0px;
+  }
+  .title-background {
+    background-image: linear-gradient(to bottom right, #30a46c, #0af684);
+    width: 400;
+    height: 60;
+    padding: 2px 30px 5px 35px;
+    color: aliceblue;
+  }
+  .title-border {
+    width: 300;
+    height: 100;
+  }
+  .content {
+    margin-left: 35;
+    font-size: 14px;
+  }
+</style>
+<html>
+  <body>
+    <div class="container">
+      <img
+        src="https://goodmove-assets.s3.ap-south-1.amazonaws.com/gm-logo-with-name.png"
+        alt="logo"
+        class="logo"
+      />
+
+      <div class="horizontal-border"></div>
+      <div class="vertical-border"></div>
+      <div class="title-border"></div>
+      <div class="title-background">
+        <h3>Summary Report {{date}}</h3>
+      </div>
+
+      <div class="content">
+        <p>Total Trips: <b>{{total_trips}}</b></p>
+        <p>Total Tours: <b>{{total_tours}}</b></p>
+        <p>Total Vehicles: <b>{{total_vehicles}}</b></p>
+        <p>Total Bookings Assigned to Vehicles: <b>{{total_bookings}}</b></p>
+        <p>Total KM: <b>{{total_km}}</b></p>
+        <p>Total Wait Time: <b>{{total_wait_time}} (Mins)</b></p>
+        <p>Average KM per Vehicle: <b>{{avg_km_per_vehicles}} </b></p>
+        <p>Average KM per Trip: <b>{{avg_km_per_trip}} </b></p>
+        <p>Average Wait Time per Trip: <b>{{avg_wait_time_per_trip}} (Mins)</b></p>
+        <p>Total Revenue: <b>{{total_revenue}}</b></p>
+      </div>
+    </div>
+  </body>
+</html>

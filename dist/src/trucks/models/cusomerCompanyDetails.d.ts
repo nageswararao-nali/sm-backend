@@ -1,0 +1,30 @@
+export declare class CustomerCompanyEntity {
+    id: number;
+    company_name: string;
+    users: string;
+    return_percentage: number;
+    return_percentage_value: number;
+    min_base_fare: number;
+    extra_charge_percentage: number;
+    additional_pickup_charge: number;
+    is_active: boolean;
+    waiting_charge_type: string;
+    name: string;
+    loading_charge: number;
+    address_id: number;
+    mobile: string;
+    email: string;
+    address: string;
+    gst: string;
+    billing_cycle: string;
+    is_discount_applicable: boolean;
+    discount_on_waiting_charges: number;
+    discount_on_freight_charges: number;
+    dead_miles_price: number;
+    is_regular: boolean;
+    is_waiting_charges_include: boolean;
+    has_daily_limit: boolean;
+    bap_id: string;
+    is_otp_enabled: string;
+    is_delivery_proof_enabled: string;
+}
