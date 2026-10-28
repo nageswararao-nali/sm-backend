@@ -58,57 +58,9 @@ __decorate([
     __metadata("design:type", String)
 ], BookingEntity.prototype, "dropoff_flexible_time", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", Number)
-], BookingEntity.prototype, "commodity_type", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", String)
-], BookingEntity.prototype, "other_commodity_name", void 0);
-__decorate([
     (0, typeorm_1.Column)({ nullable: true, type: 'float' }),
     __metadata("design:type", String)
 ], BookingEntity.prototype, "commodity_weight", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", Number)
-], BookingEntity.prototype, "weight_unit", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", String)
-], BookingEntity.prototype, "commodity_whole_volume", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", Number)
-], BookingEntity.prototype, "volume_unit", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", Number)
-], BookingEntity.prototype, "commodity_length", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", Number)
-], BookingEntity.prototype, "length_unit", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", Number)
-], BookingEntity.prototype, "commodity_breadth", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", Number)
-], BookingEntity.prototype, "breadth_unit", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", Number)
-], BookingEntity.prototype, "commodity_height", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", Number)
-], BookingEntity.prototype, "height_unit", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", Number)
-], BookingEntity.prototype, "packaging_type", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
@@ -145,10 +97,6 @@ __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], BookingEntity.prototype, "tour_status", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true, default: 0 }),
-    __metadata("design:type", Number)
-], BookingEntity.prototype, "assign_tour_status", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true, default: 0 }),
     __metadata("design:type", Number)
@@ -312,10 +260,6 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
-], BookingEntity.prototype, "vehicle_type", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", String)
 ], BookingEntity.prototype, "payment_type", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
@@ -342,10 +286,6 @@ __decorate([
     __metadata("design:type", String)
 ], BookingEntity.prototype, "dropoff_receiver_name", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true, default: 'Immediate' }),
-    __metadata("design:type", String)
-], BookingEntity.prototype, "time_interval", void 0);
-__decorate([
     (0, typeorm_1.Column)({ nullable: true, default: 0 }),
     __metadata("design:type", Number)
 ], BookingEntity.prototype, "pickup_address_id", void 0);
@@ -354,17 +294,13 @@ __decorate([
     __metadata("design:type", Number)
 ], BookingEntity.prototype, "dropoff_address_id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ default: true }),
-    __metadata("design:type", Boolean)
-], BookingEntity.prototype, "is_vivegam", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", String)
-], BookingEntity.prototype, "booking_for", void 0);
-__decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], BookingEntity.prototype, "trip_type", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], BookingEntity.prototype, "vehicle_type", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
@@ -381,18 +317,6 @@ __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], BookingEntity.prototype, "invoice_number", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ default: false }),
-    __metadata("design:type", Boolean)
-], BookingEntity.prototype, "loading_charge_applicable", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ default: false }),
-    __metadata("design:type", Boolean)
-], BookingEntity.prototype, "unloading_charge_applicable", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ default: false }),
-    __metadata("design:type", Boolean)
-], BookingEntity.prototype, "both_loading_unloading_charge_applicable", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true, default: 0 }),
     __metadata("design:type", Number)
@@ -445,10 +369,6 @@ __decorate([
     (0, typeorm_1.Column)({ default: 'pickup' }),
     __metadata("design:type", String)
 ], BookingEntity.prototype, "payment_at", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ default: false }),
-    __metadata("design:type", Boolean)
-], BookingEntity.prototype, "is_booking_from_app", void 0);
 __decorate([
     (0, typeorm_1.Column)({ default: false }),
     __metadata("design:type", Boolean)

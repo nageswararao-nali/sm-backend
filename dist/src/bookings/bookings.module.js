@@ -10,6 +10,7 @@ exports.BookingsModule = void 0;
 const axios_1 = require("@nestjs/axios");
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
+const bullmq_1 = require("@nestjs/bullmq");
 const admin_module_1 = require("../admin/admin.module");
 const consolidationCenters_entity_1 = require("../admin/models/consolidationCenters.entity");
 const admin_service_1 = require("../admin/services/admin.service");
@@ -53,6 +54,9 @@ const locations_entity_1 = require("../trucks/models/locations.entity");
 const driverLastLocDetails_1 = require("../trucks/models/driverLastLocDetails");
 const tours_module_1 = require("../tours/tours.module");
 const trucks_module_1 = require("../trucks/trucks.module");
+const bookingDispatch_entity_1 = require("./models/bookingDispatch.entity");
+const bookingDispatchCandidate_entity_1 = require("./models/bookingDispatchCandidate.entity");
+const dispatch_timeout_processor_1 = require("./queues/dispatch-timeout.processor");
 let BookingsModule = class BookingsModule {
 };
 BookingsModule = __decorate([
@@ -78,13 +82,16 @@ BookingsModule = __decorate([
                 locations_entity_1.LocationsEntity,
                 driverLastLocDetails_1.DriverLastLocationDetails,
                 deliveryProof_entity_1.DeliveryProofEntity,
-                portalSettings_entity_1.PortalSettingsEntity
+                portalSettings_entity_1.PortalSettingsEntity,
+                bookingDispatch_entity_1.BookingDispatchEntity,
+                bookingDispatchCandidate_entity_1.BookingDispatchCandidateEntity
             ]),
             admin_module_1.AdminModule,
             utils_module_1.UtilsModule,
             axios_1.HttpModule,
             (0, common_1.forwardRef)(() => tours_module_1.ToursModule),
-            trucks_module_1.TrucksModule
+            trucks_module_1.TrucksModule,
+            bullmq_1.BullModule.registerQueue({ name: 'dispatch-timeout' })
         ],
         controllers: [booking_controller_1.BookingController],
         providers: [
@@ -92,7 +99,8 @@ BookingsModule = __decorate([
             consolidationCenters_entity_1.ConsolidationCenterEntity, users_service_1.UsersService, users_entity_1.UsersEntity, trip_entity_1.TripEntity, bookingStatus_entity_1.BookingStatusEntity,
             utils_service_1.UtilsService, tours_entity_1.ToursEntity, truck_entity_1.TrucksEntity, tourBookingDetails_entity_1.TourBookingDetailsEntity, tourAssignTruckDrivers_entity_1.TourAssignTruckDriversEntity,
             cusomerCompanyDetails_1.CustomerCompanyEntity, shop_entity_1.ShopsEntity, driverSessionDistance_entity_1.DriverSessionDistanceEntity, invoiceDetails_1.InvoiceDetailsEntity, invoiceNumber_1.InvoiceNumberEntity,
-            gmRates_1.RateDetailsEntity, deletedBookings_entity_1.DeletedBookingsEntity, pendingBookings_1.PendingBookingEntity, specialAddress_entity_1.SpecialAddressEntity, customerBookingLogs_1.CustomerBookingLogsEntity, bdookingTimeBackup_1.BookingTimeBackupEntity
+            gmRates_1.RateDetailsEntity, deletedBookings_entity_1.DeletedBookingsEntity, pendingBookings_1.PendingBookingEntity, specialAddress_entity_1.SpecialAddressEntity, customerBookingLogs_1.CustomerBookingLogsEntity, bdookingTimeBackup_1.BookingTimeBackupEntity,
+            bookingDispatch_entity_1.BookingDispatchEntity, bookingDispatchCandidate_entity_1.BookingDispatchCandidateEntity, dispatch_timeout_processor_1.DispatchTimeoutProcessor
         ],
         exports: [booking_entity_1.BookingEntity, bookingConsolidationCenters_entity_1.BookingConsolidationCentersEntity, trip_entity_1.TripEntity, booking_service_1.BookingService]
     })

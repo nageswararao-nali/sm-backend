@@ -276,7 +276,7 @@ let UtilsService = class UtilsService {
         const seqData = await this.tourRouteRepository.findOneBy({ id });
         return seqData;
     }
-    async sendPushNotification(title, body, savedPushTokens) {
+    async sendPushNotification(title, body, savedPushTokens, data = {}) {
         let notifications = [];
         for (let pushToken of savedPushTokens) {
             if (!expo_server_sdk_1.Expo.isExpoPushToken(pushToken)) {
@@ -287,7 +287,7 @@ let UtilsService = class UtilsService {
                 sound: "default",
                 title: title,
                 body: body,
-                data: { body }
+                data: Object.assign({ body }, data)
             });
         }
         let chunks = expo.chunkPushNotifications(notifications);

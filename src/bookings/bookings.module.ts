@@ -1,6 +1,7 @@
 import { HttpModule } from '@nestjs/axios';
 import { Module, forwardRef } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { BullModule } from '@nestjs/bullmq';
 import { AdminModule } from 'src/admin/admin.module';
 import { ConsolidationCenterEntity } from 'src/admin/models/consolidationCenters.entity';
 import { AdminService } from 'src/admin/services/admin.service';
@@ -44,6 +45,9 @@ import { LocationsEntity } from 'src/trucks/models/locations.entity';
 import { DriverLastLocationDetails } from 'src/trucks/models/driverLastLocDetails';
 import { ToursModule } from 'src/tours/tours.module';
 import { TrucksModule } from 'src/trucks/trucks.module';
+import { BookingDispatchEntity } from './models/bookingDispatch.entity';
+import { BookingDispatchCandidateEntity } from './models/bookingDispatchCandidate.entity';
+import { DispatchTimeoutProcessor } from './queues/dispatch-timeout.processor';
 
 @Module({
   imports: [
@@ -67,22 +71,26 @@ import { TrucksModule } from 'src/trucks/trucks.module';
       LocationsEntity,
       DriverLastLocationDetails,
       DeliveryProofEntity,
-      PortalSettingsEntity
+      PortalSettingsEntity,
+      BookingDispatchEntity,
+      BookingDispatchCandidateEntity
 
     ]),
     AdminModule,
     UtilsModule,
     HttpModule,
     forwardRef(() => ToursModule),
-    TrucksModule
+    TrucksModule,
+    BullModule.registerQueue({ name: 'dispatch-timeout' })
   ],
   controllers: [BookingController],
   providers: [
-    BookingService, BookingEntity, BookingConsolidationCentersEntity, AdminService, 
-    ConsolidationCenterEntity, UsersService, UsersEntity, TripEntity, BookingStatusEntity, 
+    BookingService, BookingEntity, BookingConsolidationCentersEntity, AdminService,
+    ConsolidationCenterEntity, UsersService, UsersEntity, TripEntity, BookingStatusEntity,
     UtilsService, ToursEntity, TrucksEntity, TourBookingDetailsEntity, TourAssignTruckDriversEntity,
-    CustomerCompanyEntity, ShopsEntity, DriverSessionDistanceEntity, InvoiceDetailsEntity, InvoiceNumberEntity, 
-    RateDetailsEntity, DeletedBookingsEntity, PendingBookingEntity, SpecialAddressEntity, CustomerBookingLogsEntity, BookingTimeBackupEntity
+    CustomerCompanyEntity, ShopsEntity, DriverSessionDistanceEntity, InvoiceDetailsEntity, InvoiceNumberEntity,
+    RateDetailsEntity, DeletedBookingsEntity, PendingBookingEntity, SpecialAddressEntity, CustomerBookingLogsEntity, BookingTimeBackupEntity,
+    BookingDispatchEntity, BookingDispatchCandidateEntity, DispatchTimeoutProcessor
   ],
   exports: [BookingEntity, BookingConsolidationCentersEntity, TripEntity, BookingService]
 })

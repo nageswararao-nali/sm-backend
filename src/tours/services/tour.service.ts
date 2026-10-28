@@ -105,7 +105,6 @@ export class TourService {
             {
                 const booking = await this.bookingRepository.findOneBy({id: tourDetail.booking_id})
                 const tripData = await this.tripRepo.findOneBy({trip_id: tourDetail.trip_id})
-                const commodity_type = await this.utilsService.getCatName(booking.commodity_type)
                 const callLog = await this.callLogRepo.findOneBy({booking_id: booking.id})
                 const customerCompany = await this.customerCompanyDetails.findOne({ where: { users: Like(`%#${booking.customer_id},%`) } })
                 bookingDetails = {
@@ -125,19 +124,8 @@ export class TourService {
                     "dropoff_time": moment(tripData.dropoff_time).format('hh:mm A'),
                     "dropofftime_flexiblity_status": dropofftime_flexiblity_status,
                     "dropoff_flexible_time": dropoff_flexible_time,
-                    "commodity_type": commodity_type == 'Others' ? booking.other_commodity_name :  commodity_type,
                     // "truck_owner_status": tripData.truck_owner_status,
                     "commodity_weight": booking.commodity_weight,
-                    "weight_unit": booking.weight_unit,
-                    "commodity_whole_volume": booking.commodity_whole_volume,
-                    "volume_unit":  await this.utilsService.getCatName(booking.volume_unit),
-                    "commodity_length": booking.commodity_length,
-                    "length_unit":  await this.utilsService.getCatName(booking.length_unit),
-                    "commodity_breadth": booking.commodity_breadth,
-                    "breadth_unit":  await this.utilsService.getCatName(booking.breadth_unit),
-                    "commodity_height": booking.commodity_height,
-                    "height_unit":  await this.utilsService.getCatName(booking.height_unit),
-                    "packaging_type":  await this.utilsService.getCatName(booking.packaging_type),
                     "consignment_image":  booking.consignment_image,
                     "receiver_name": booking.receiver_name,
                     "receiver_contact": booking.receiver_contact,
@@ -156,7 +144,7 @@ export class TourService {
                     "payment_status": booking.payment_status,
                     "booking_at_consolidation_center_tour_status_flag": 0,
                     "booking_at_consolidation_center_tour_status": '',
-                    "assign_tour_status": booking.assign_tour_status,
+                    "assign_tour_status": booking.assign_tour_status_graph,
                     "created_date": moment(booking.created_at).format('d-m-Y'),
                     "created_time": moment(booking.created_at).format('hh:mm A'),
                     "fare": booking.fare,
@@ -170,7 +158,6 @@ export class TourService {
                     "additional_fare": booking.additional_fare,
                     "total_fare": booking.total_fare,
                     "tdcNumber": booking.tdcNumber,
-                    "booking_for": booking.booking_for,
                     "requestInfo": booking.requestInfo,
                     "calls_count": callLog ? callLog.calls_count : 0,
                     "is_otp_enabled": customerCompany ? customerCompany.is_otp_enabled : 'No',
@@ -245,7 +232,6 @@ export class TourService {
                 const callLog = callLogByBookingId.get(booking.id)
                 const customerCompany = companyForCustomer(booking.customer_id)
                 bookings[booking.id] = {
-                    weight_unit: booking.weight_unit,
                     receiver_name: booking.receiver_name,
                     receiver_contact: booking.receiver_contact,
                     pickup_receiver_name: booking.pickup_receiver_name,
@@ -268,7 +254,6 @@ export class TourService {
                     is_otp_enabled: customerCompany ? customerCompany.is_otp_enabled : 'No',
                     is_delivery_proof_enabled: customerCompany ? customerCompany.is_delivery_proof_enabled : 'No',
                     tdcNumber: booking.tdcNumber,
-                    booking_for: booking.booking_for,
                     requestInfo: booking.requestInfo,
                     calls_count: callLog ? callLog.calls_count : 0,
                     consignment_image: booking.consignment_image,
@@ -549,7 +534,6 @@ export class TourService {
                     }
                 } */
                 //console.log(booking.id)
-                let commodity_type = await this.utilsService.getCatName(booking.commodity_type)
                 // //console.log(booking.pickup_time)
                 //console.log(tripData.pickup_time)
                 let bookingDetails = {
@@ -569,19 +553,8 @@ export class TourService {
                     "dropoff_time": tripData ? moment(tripData.dropoff_time).format('hh:mm A'): '',
                     "dropofftime_flexiblity_status": dropofftime_flexiblity_status,
                     "dropoff_flexible_time": dropoff_flexible_time,
-                    "commodity_type": commodity_type == 'Others' ? booking.other_commodity_name :  commodity_type,
                     // "truck_owner_status": tripData.truck_owner_status,
                     "commodity_weight": booking.commodity_weight,
-                    "weight_unit": await this.utilsService.getCatName(booking.weight_unit),
-                    "commodity_whole_volume": booking.commodity_whole_volume,
-                    "volume_unit":  await this.utilsService.getCatName(booking.volume_unit),
-                    "commodity_length": booking.commodity_length,
-                    "length_unit":  await this.utilsService.getCatName(booking.length_unit),
-                    "commodity_breadth": booking.commodity_breadth,
-                    "breadth_unit":  await this.utilsService.getCatName(booking.breadth_unit),
-                    "commodity_height": booking.commodity_height,
-                    "height_unit":  await this.utilsService.getCatName(booking.height_unit),
-                    "packaging_type":  await this.utilsService.getCatName(booking.packaging_type),
                     "consignment_image":  booking.consignment_image,
                     "receiver_name": booking.receiver_name,
                     "receiver_contact": booking.receiver_contact,
@@ -593,7 +566,7 @@ export class TourService {
                     "tour_status": booking.tour_status,
                     "booking_at_consolidation_center_tour_status_flag": 0,
                     "booking_at_consolidation_center_tour_status": '',
-                    "assign_tour_status": booking.assign_tour_status,
+                    "assign_tour_status": booking.assign_tour_status_graph,
                     "created_date": moment(booking.created_at).format('d-m-Y'),
                     "created_time": moment(booking.created_at).format('hh:mm A')
                 }
@@ -1078,19 +1051,16 @@ export class TourService {
                 if(vLiveData) {
                     // update live data with new tour
                     if(updateData.isNew) {
-                        await this.vehicleLiveDataRepo.update({driver_id: tourData.driver_id}, {tour_id: tourId, volume: '0', weight: '0'})
+                        await this.vehicleLiveDataRepo.update({driver_id: tourData.driver_id}, {tour_id: tourId, weight: '0'})
                     } else {
-                        let volume = parseFloat(vLiveData.volume)
                         let weight = parseFloat(vLiveData.volume)
                         const booking = await this.bookingRepository.findOneBy({id: updateData.booking_id})
                         if(updateData.pickup) {
-                            volume += parseInt(booking.commodity_whole_volume) == 1 ? 0 : parseInt(booking.commodity_whole_volume)
-                            weight += parseInt(booking.commodity_weight) 
+                            weight += parseInt(booking.commodity_weight)
                         } else {
-                            volume -= parseInt(booking.commodity_whole_volume) == 1 ? 0 : parseInt(booking.commodity_whole_volume)
-                            weight -= parseInt(booking.commodity_weight) 
+                            weight -= parseInt(booking.commodity_weight)
                         }
-                        await this.vehicleLiveDataRepo.update({driver_id: tourData.driver_id}, {tour_id: tourId, volume: volume.toString(), weight: weight.toString()})
+                        await this.vehicleLiveDataRepo.update({driver_id: tourData.driver_id}, {tour_id: tourId, weight: weight.toString()})
                     }
                     
                 } else {
@@ -1442,7 +1412,7 @@ export class TourService {
             let tourSeqData = await this.tourRouteRepository.find({where: {tour_id: id}})
             for(let seqData of tourSeqData) {
                 await this.tripRepo.update({trip_id: seqData.trip_id}, {tour_id: null})
-                await this.bookingRepository.update(seqData.booking_id, {assign_tour_status: 0, assign_tour_status_graph: 0, reached_pickup: null, completed_pickup: null, reached_drop: null, completed_drop: null, driver_name: null, driver_mobile: null})
+                await this.bookingRepository.update(seqData.booking_id, {assign_tour_status_graph: 0, reached_pickup: null, completed_pickup: null, reached_drop: null, completed_drop: null, driver_name: null, driver_mobile: null})
                 await this.bookingService.cancelByManager(seqData.booking_id)
                 // booking is cancelled, not reallocated, so it must not sit in the allocation pool
                 await this.removeBookingRedisPoolEntry(seqData.booking_id)
@@ -1490,7 +1460,7 @@ export class TourService {
             const requeueBookingIds = new Set<number>()
             for(let seqData of tourSeqData) {
                 await this.tripRepo.update({trip_id: seqData.trip_id}, {tour_id: null})
-                await this.bookingRepository.update(seqData.booking_id, {assign_tour_status: 0, assign_tour_status_graph: 0, driver_name: '', driver_mobile: '', vehicle_number: ''})
+                await this.bookingRepository.update(seqData.booking_id, {assign_tour_status_graph: 0, driver_name: '', driver_mobile: '', vehicle_number: ''})
                 await this.tourRouteRepository.update({id: seqData.id}, {tour_id: 0})
                 // const bsReq = {
                 //     booking_id: seqData.booking_id,

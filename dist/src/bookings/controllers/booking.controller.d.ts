@@ -16,6 +16,8 @@ export declare class BookingController {
         data: {};
         message: string;
     }>;
+    acceptDispatch(reqBody: any): Promise<any>;
+    declineDispatch(reqBody: any): Promise<any>;
     updateBooking(id: number, reqBody: any): Promise<{
         success: boolean;
         data: {};

@@ -74,6 +74,12 @@ let BookingController = class BookingController {
         }
         return response;
     }
+    async acceptDispatch(reqBody) {
+        return await this.bookingService.acceptDispatch(reqBody);
+    }
+    async declineDispatch(reqBody) {
+        return await this.bookingService.declineDispatch(reqBody);
+    }
     async updateBooking(id, reqBody) {
         let response = {
             success: true,
@@ -985,6 +991,20 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], BookingController.prototype, "addMultiBooking", null);
+__decorate([
+    (0, common_1.Post)('acceptDispatch'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], BookingController.prototype, "acceptDispatch", null);
+__decorate([
+    (0, common_1.Post)('declineDispatch'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], BookingController.prototype, "declineDispatch", null);
 __decorate([
     (0, common_1.Post)('updateBooking/:id'),
     __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),

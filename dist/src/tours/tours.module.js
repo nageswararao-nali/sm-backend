@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ToursModule = void 0;
 const common_1 = require("@nestjs/common");
+const bullmq_1 = require("@nestjs/bullmq");
 const tour_service_1 = require("./services/tour.service");
 const tour_controller_1 = require("./controllers/tour.controller");
 const tours_entity_1 = require("./models/tours.entity");
@@ -72,6 +73,8 @@ const redis_module_1 = require("../common/redis/redis.module");
 const callLogs_entity_1 = require("./models/callLogs.entity");
 const deliveryProof_entity_1 = require("./models/deliveryProof.entity");
 const portalSettings_entity_1 = require("../admin/models/portalSettings.entity");
+const bookingDispatch_entity_1 = require("../bookings/models/bookingDispatch.entity");
+const bookingDispatchCandidate_entity_1 = require("../bookings/models/bookingDispatchCandidate.entity");
 let ToursModule = class ToursModule {
 };
 ToursModule = __decorate([
@@ -121,16 +124,20 @@ ToursModule = __decorate([
                 driverLastLocDetails_1.DriverLastLocationDetails,
                 callLogs_entity_1.CallLogsEntity,
                 deliveryProof_entity_1.DeliveryProofEntity,
-                portalSettings_entity_1.PortalSettingsEntity
+                portalSettings_entity_1.PortalSettingsEntity,
+                bookingDispatch_entity_1.BookingDispatchEntity,
+                bookingDispatchCandidate_entity_1.BookingDispatchCandidateEntity
             ]),
             utils_module_1.UtilsModule,
             axios_1.HttpModule,
             trucks_module_1.TrucksModule,
             admin_module_1.AdminModule,
-            redis_module_1.RedisModule
+            redis_module_1.RedisModule,
+            bullmq_1.BullModule.registerQueue({ name: 'dispatch-timeout' })
         ],
         providers: [
             tour_service_1.TourService, tours_entity_1.ToursEntity, tourBookingDetails_entity_1.TourBookingDetailsEntity, booking_entity_1.BookingEntity,
+            bookingDispatch_entity_1.BookingDispatchEntity, bookingDispatchCandidate_entity_1.BookingDispatchCandidateEntity,
             bookingConsolidationCenters_entity_1.BookingConsolidationCentersEntity,
             categories_entity_1.CategoriesEntity,
             tourAssignTruckDrivers_entity_1.TourAssignTruckDriversEntity,

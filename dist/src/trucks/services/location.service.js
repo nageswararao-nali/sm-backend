@@ -1408,9 +1408,6 @@ let LocationService = class LocationService {
                                 bookingIds.push(booking.id);
                                 bookingWeights[booking.id] = booking.commodity_weight;
                                 bookingCarges[booking.id] = {
-                                    loading: booking.loading_charge_applicable,
-                                    unloading: booking.unloading_charge_applicable,
-                                    both: booking.both_loading_unloading_charge_applicable,
                                     toll: booking.toll_charges,
                                     loadingCharge: booking.loading_charge
                                 };
@@ -1747,9 +1744,6 @@ let LocationService = class LocationService {
                                 bookingIds.push(booking.id);
                                 bookingWeights[booking.id] = booking.commodity_weight;
                                 bookingCarges[booking.id] = {
-                                    loading: booking.loading_charge_applicable,
-                                    unloading: booking.unloading_charge_applicable,
-                                    both: booking.both_loading_unloading_charge_applicable,
                                     toll: booking.toll_charges,
                                     loadingCharge: booking.loading_charge
                                 };
@@ -4004,7 +3998,7 @@ let LocationService = class LocationService {
             else {
             }
             tripDistance = Math.round(tripDistance);
-            const total_trip_weight = distanceByVehicle[booking.vehicle_type];
+            const total_trip_weight = distanceByVehicle['4wheeler'];
             const rate_data = await this.gmRates.findOne({ where: { quantity: (0, typeorm_2.MoreThanOrEqual)(total_trip_weight), company_id: 0 }, order: { id: 'ASC' } });
             if (tripDistance <= 4) {
                 total_fare = rate_data.base_rate;
@@ -4159,14 +4153,13 @@ let LocationService = class LocationService {
         }
         let reqObj = {
             "trip_type": bookingData.trip_type,
-            "booking_for": bookingData.booking_for,
             "customer_id": bookingData.customer_id,
             "drop_address": dropoff_addresses_data,
             "is_vivegam": is_vivegam,
             "pickup_address": pickup_addresses_data,
-            "vehicle_type": bookingData.vehicle_type,
+            "vehicle_type": "4wheeler",
             "weight": parseInt(bookingData.commodity_weight),
-            "weight_unit": bookingData.weight_unit
+            "weight_unit": 12
         };
         let return_fare = 0;
         if (bookingData.trip_type.toLocaleLowerCase() == 'round') {
@@ -4547,14 +4540,13 @@ let LocationService = class LocationService {
         }
         let reqObj = {
             "trip_type": bookings[0].trip_type,
-            "booking_for": bookings[0].booking_for,
             "customer_id": 1,
             "drop_address": dropoff_addresses_data,
-            "is_vivegam": bookings[0].is_vivegam,
+            "is_vivegam": true,
             "pickup_address": pickup_addresses_data,
-            "vehicle_type": bookings[0].vehicle_type,
+            "vehicle_type": "4wheeler",
             "weight": parseInt(bookings[0].commodity_weight),
-            "weight_unit": bookings[0].weight_unit
+            "weight_unit": 12
         };
         let return_fare = 0;
         if (bookings[0].trip_type && bookings[0].trip_type.toLocaleLowerCase() == 'round') {
@@ -4657,9 +4649,6 @@ let LocationService = class LocationService {
                                 bookingIds.push(booking.id);
                                 bookingWeights[booking.id] = booking.commodity_weight;
                                 bookingCarges[booking.id] = {
-                                    loading: booking.loading_charge_applicable,
-                                    unloading: booking.unloading_charge_applicable,
-                                    both: booking.both_loading_unloading_charge_applicable,
                                     toll: booking.toll_charges,
                                     loadingCharge: booking.loading_charge
                                 };
@@ -5044,9 +5033,6 @@ let LocationService = class LocationService {
                                 bookingIds.push(booking.id);
                                 bookingWeights[booking.id] = booking.commodity_weight;
                                 bookingCarges[booking.id] = {
-                                    loading: booking.loading_charge_applicable,
-                                    unloading: booking.unloading_charge_applicable,
-                                    both: booking.both_loading_unloading_charge_applicable,
                                     toll: booking.toll_charges,
                                     loadingCharge: booking.loading_charge
                                 };
@@ -5474,9 +5460,6 @@ let LocationService = class LocationService {
                                 bookingIds.push(booking.id);
                                 bookingWeights[booking.id] = booking.commodity_weight;
                                 bookingCarges[booking.id] = {
-                                    loading: booking.loading_charge_applicable,
-                                    unloading: booking.unloading_charge_applicable,
-                                    both: booking.both_loading_unloading_charge_applicable,
                                     toll: booking.toll_charges,
                                     loadingCharge: booking.loading_charge
                                 };
@@ -5807,9 +5790,6 @@ let LocationService = class LocationService {
                                 bookingWeights[booking.id] = booking.commodity_weight;
                                 bookingFares[booking.id] = booking.fare;
                                 bookingCarges[booking.id] = {
-                                    loading: booking.loading_charge_applicable,
-                                    unloading: booking.unloading_charge_applicable,
-                                    both: booking.both_loading_unloading_charge_applicable,
                                     toll: booking.toll_charges,
                                     loadingCharge: booking.loading_charge
                                 };

@@ -12,6 +12,7 @@ const core_1 = require("@nestjs/core");
 const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
 const cache_manager_1 = require("@nestjs/cache-manager");
+const bullmq_1 = require("@nestjs/bullmq");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const users_module_1 = require("./users/users.module");
@@ -36,8 +37,21 @@ AppModule = __decorate([
                 username: process.env.POSTGRES_USERNAME,
                 password: process.env.POSTGRES_PASSWORD,
                 database: process.env.POSTGRES_DATABASE,
+                ssl: { rejectUnauthorized: false },
                 autoLoadEntities: true,
                 synchronize: true
+            }),
+            bullmq_1.BullModule.forRootAsync({
+                useFactory: () => ({
+                    connection: {
+                        host: process.env.REDIS_HOST,
+                        port: Number(process.env.REDIS_PORT || 6379),
+                        username: process.env.REDIS_USERNAME || undefined,
+                        password: process.env.REDIS_PASSWORD,
+                        db: Number(process.env.REDIS_DB || 0),
+                        maxRetriesPerRequest: null,
+                    },
+                }),
             }),
             users_module_1.UsersModule,
             utils_module_1.UtilsModule,

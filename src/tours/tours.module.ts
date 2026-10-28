@@ -1,4 +1,5 @@
 import { Module, forwardRef } from '@nestjs/common';
+import { BullModule } from '@nestjs/bullmq';
 import { TourService } from './services/tour.service';
 import { TourController } from './controllers/tour.controller';
 import { ToursEntity } from './models/tours.entity';
@@ -63,6 +64,8 @@ import { RedisModule } from 'src/common/redis/redis.module';
 import { CallLogsEntity } from './models/callLogs.entity';
 import { DeliveryProofEntity } from './models/deliveryProof.entity';
 import { PortalSettingsEntity } from 'src/admin/models/portalSettings.entity';
+import { BookingDispatchEntity } from 'src/bookings/models/bookingDispatch.entity';
+import { BookingDispatchCandidateEntity } from 'src/bookings/models/bookingDispatchCandidate.entity';
 
 @Module({
   imports: [
@@ -110,16 +113,20 @@ import { PortalSettingsEntity } from 'src/admin/models/portalSettings.entity';
       DriverLastLocationDetails,
       CallLogsEntity,
       DeliveryProofEntity,
-      PortalSettingsEntity
+      PortalSettingsEntity,
+      BookingDispatchEntity,
+      BookingDispatchCandidateEntity
     ]),
     UtilsModule,
     HttpModule,
     TrucksModule,
     AdminModule,
-    RedisModule
+    RedisModule,
+    BullModule.registerQueue({ name: 'dispatch-timeout' })
   ],
   providers: [
-    TourService, ToursEntity, TourBookingDetailsEntity, BookingEntity, 
+    TourService, ToursEntity, TourBookingDetailsEntity, BookingEntity,
+    BookingDispatchEntity, BookingDispatchCandidateEntity,
     BookingConsolidationCentersEntity, 
     CategoriesEntity,
     TourAssignTruckDriversEntity,

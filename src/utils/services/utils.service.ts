@@ -303,20 +303,20 @@ export class UtilsService {
         return seqData;
     }
 
-    async sendPushNotification(title: string, body: string, savedPushTokens: any ) {
+    async sendPushNotification(title: string, body: string, savedPushTokens: any, data: any = {} ) {
         let notifications = [];
         for (let pushToken of savedPushTokens) {
           if (!Expo.isExpoPushToken(pushToken)) {
             // console.error(`Push token ${pushToken} is not a valid Expo push token`);
             continue;
           }
-      
+
           notifications.push({
             to: pushToken,
             sound: "default",
             title: title,
             body: body,
-            data: { body }
+            data: { body, ...data }
           });
         }
       

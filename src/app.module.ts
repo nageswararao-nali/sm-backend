@@ -3,6 +3,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CacheModule } from '@nestjs/cache-manager';
+import { BullModule } from '@nestjs/bullmq';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
@@ -25,8 +26,21 @@ import { JwtAuthGuard } from './common/guards/jwt-auth.guard';
       username: process.env.POSTGRES_USERNAME,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
+      ssl: { rejectUnauthorized: false },
       autoLoadEntities: true,
       synchronize: true
+    }),
+    BullModule.forRootAsync({
+      useFactory: () => ({
+        connection: {
+          host: process.env.REDIS_HOST,
+          port: Number(process.env.REDIS_PORT || 6379),
+          username: process.env.REDIS_USERNAME || undefined,
+          password: process.env.REDIS_PASSWORD,
+          db: Number(process.env.REDIS_DB || 0),
+          maxRetriesPerRequest: null,
+        },
+      }),
     }),
     UsersModule,
     UtilsModule,

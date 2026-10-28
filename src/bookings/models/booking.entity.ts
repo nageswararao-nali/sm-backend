@@ -35,44 +35,8 @@ export class BookingEntity {
     @Column({nullable: true})
     dropoff_flexible_time: string
 
-    @Column()
-    commodity_type: number
-
-    @Column({nullable: true})
-    other_commodity_name: string
-    
     @Column({nullable: true, type: 'float'})
     commodity_weight: string
-    
-    @Column({nullable: true})
-    weight_unit: number
-    
-    @Column({nullable: true})
-    commodity_whole_volume: string
-    
-    @Column({nullable: true})
-    volume_unit: number
-
-    @Column({nullable: true})
-    commodity_length: number
-
-    @Column({nullable: true})
-    length_unit: number
-
-    @Column({nullable: true})
-    commodity_breadth: number
-
-    @Column({nullable: true})
-    breadth_unit: number
-
-    @Column({nullable: true})
-    commodity_height: number
-
-    @Column({nullable: true})
-    height_unit: number
-
-    @Column({nullable: true})
-    packaging_type: number
 
     @Column({nullable: true})
     consignment_image: string
@@ -101,9 +65,6 @@ export class BookingEntity {
     @Column({nullable: true})
     tour_status: string
 
-    @Column({nullable: true, default: 0})
-    assign_tour_status: number
-	
     @Column({nullable: true, default: 0})
     assign_tour_status_graph: number
 	
@@ -225,9 +186,6 @@ export class BookingEntity {
     booking_type: string
 
     @Column({nullable: true})
-    vehicle_type: string
-
-    @Column({nullable: true})
     payment_type: string
 
     @Column({nullable: true})
@@ -248,24 +206,22 @@ export class BookingEntity {
     @Column({nullable: true})
     dropoff_receiver_name: string
 
-    @Column({nullable: true, default: 'Immediate'})
-    time_interval: string
-    
     @Column({nullable: true,  default:  0})
     pickup_address_id: number
 
     @Column({nullable: true,  default:  0})
     dropoff_address_id: number
 
-    @Column({default: true})
-    is_vivegam: boolean
-
-    @Column({nullable: true})
-    booking_for: string
-
     @Column({nullable: true})
     trip_type: string
-    
+
+    // "2wheeler" | "3wheeler" | "4wheeler" - matches the format used by the fare-calc
+    // payload and booking.service.ts's distanceByVehicle map. Was read from reqBody.vehicle_type
+    // but never persisted (no column existed) until the driver-dispatch feature needed it
+    // for vehicle-type matching.
+    @Column({nullable: true})
+    vehicle_type: string
+
     @Column({nullable: true})
     estimated_fare: string
 
@@ -277,15 +233,6 @@ export class BookingEntity {
 
     @Column({nullable: true})
     invoice_number: string
-
-    @Column({default: false})
-    loading_charge_applicable: boolean
-
-    @Column({default: false})
-    unloading_charge_applicable: boolean
-
-    @Column({default: false})
-    both_loading_unloading_charge_applicable: boolean
 
     @Column({nullable: true, default: 0})
     toll_charges: number
@@ -325,9 +272,6 @@ export class BookingEntity {
 
     @Column({default: 'pickup'})
     payment_at: string
-
-    @Column({default: false})
-    is_booking_from_app: boolean
 
     @Column({default: false})
     is_manager_updated_tour: boolean

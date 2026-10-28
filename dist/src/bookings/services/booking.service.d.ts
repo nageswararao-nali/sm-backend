@@ -32,6 +32,9 @@ import { LocationsEntity } from 'src/trucks/models/locations.entity';
 import { DeliveryProofEntity } from 'src/tours/models/deliveryProof.entity';
 import { DriverLastLocationDetails } from 'src/trucks/models/driverLastLocDetails';
 import { Redis } from 'ioredis';
+import { Queue } from 'bullmq';
+import { BookingDispatchEntity } from '../models/bookingDispatch.entity';
+import { BookingDispatchCandidateEntity } from '../models/bookingDispatchCandidate.entity';
 export declare class BookingService {
     private bookingRepo;
     private tripRepo;
@@ -64,10 +67,13 @@ export declare class BookingService {
     private redis;
     private tourService;
     private locationService;
+    private dispatchRepo;
+    private dispatchCandidateRepo;
+    private dispatchTimeoutQueue;
     baseUrl: string;
     paymentBaseUrl: string;
     apiBaseUrl: string;
-    constructor(bookingRepo: Repository<BookingEntity>, tripRepo: Repository<TripEntity>, utilService: UtilsService, bsRepo: Repository<BookingStatusEntity>, tourRepo: Repository<ToursEntity>, truckRepo: Repository<TrucksEntity>, driverRepo: Repository<DriversEntity>, tourRouteRepo: Repository<TourRouteEntity>, tourBookingDetails: Repository<TourBookingDetailsEntity>, tourAssignTruckDriverRepository: Repository<TourAssignTruckDriversEntity>, companyRepo: Repository<CustomerCompanyEntity>, shopRepo: Repository<ShopsEntity>, cAddrRepo: Repository<CustomerAddressEntity>, driverSessionDistance: Repository<DriverSessionDistanceEntity>, invoiceDetailsRepo: Repository<InvoiceDetailsEntity>, invoiceNumberRepo: Repository<InvoiceNumberEntity>, gmRates: Repository<RateDetailsEntity>, dBookingRepo: Repository<DeletedBookingsEntity>, pendingBookingRepo: Repository<PendingBookingEntity>, customerBookingLogRepo: Repository<CustomerBookingLogsEntity>, paymentTransactionRepo: Repository<PaymentTransactionsEntity>, paymentTransactionErrorRepo: Repository<PaymentTransactionErrorsEntity>, bookingTimeBackupRepo: Repository<BookingTimeBackupEntity>, dsRepo: Repository<DriverSessionsEntity>, locationRepo: Repository<LocationsEntity>, driverLastLocRepo: Repository<DriverLastLocationDetails>, deliveryProofRepo: Repository<DeliveryProofEntity>, configService: ConfigService, redis: Redis, tourService: TourService, locationService: LocationService);
+    constructor(bookingRepo: Repository<BookingEntity>, tripRepo: Repository<TripEntity>, utilService: UtilsService, bsRepo: Repository<BookingStatusEntity>, tourRepo: Repository<ToursEntity>, truckRepo: Repository<TrucksEntity>, driverRepo: Repository<DriversEntity>, tourRouteRepo: Repository<TourRouteEntity>, tourBookingDetails: Repository<TourBookingDetailsEntity>, tourAssignTruckDriverRepository: Repository<TourAssignTruckDriversEntity>, companyRepo: Repository<CustomerCompanyEntity>, shopRepo: Repository<ShopsEntity>, cAddrRepo: Repository<CustomerAddressEntity>, driverSessionDistance: Repository<DriverSessionDistanceEntity>, invoiceDetailsRepo: Repository<InvoiceDetailsEntity>, invoiceNumberRepo: Repository<InvoiceNumberEntity>, gmRates: Repository<RateDetailsEntity>, dBookingRepo: Repository<DeletedBookingsEntity>, pendingBookingRepo: Repository<PendingBookingEntity>, customerBookingLogRepo: Repository<CustomerBookingLogsEntity>, paymentTransactionRepo: Repository<PaymentTransactionsEntity>, paymentTransactionErrorRepo: Repository<PaymentTransactionErrorsEntity>, bookingTimeBackupRepo: Repository<BookingTimeBackupEntity>, dsRepo: Repository<DriverSessionsEntity>, locationRepo: Repository<LocationsEntity>, driverLastLocRepo: Repository<DriverLastLocationDetails>, deliveryProofRepo: Repository<DeliveryProofEntity>, configService: ConfigService, redis: Redis, tourService: TourService, locationService: LocationService, dispatchRepo: Repository<BookingDispatchEntity>, dispatchCandidateRepo: Repository<BookingDispatchCandidateEntity>, dispatchTimeoutQueue: Queue);
     addBooking(reqBody: any): Promise<any>;
     processGoodMoveBooking(customerName: any, reqBody: any, bookingDetails: any): Promise<any>;
     sendPaymentLinkSMS(mobile: any, bookingDetails: any): Promise<any>;
@@ -145,7 +151,10 @@ export declare class BookingService {
     driverDaySummary(reqBody: any): Promise<any>;
     driverDaySummaryManuel(reqBody: any): Promise<any>;
     genCSV(): Promise<any>;
-    findNearbyDrivers(lat: any, lng: any, radiusKm: number): Promise<any>;
+    findNearbyDrivers(lat: any, lng: any, radiusKm: number, vehicleType: string): Promise<any>;
+    broadcastMultiBooking(multiBookingId: string, legs: BookingEntity[], reqBody: any): Promise<any>;
+    acceptDispatch(reqBody: any): Promise<any>;
+    declineDispatch(reqBody: any): Promise<any>;
     deleteBookingTour(bookingId: any): Promise<any>;
     testPaymentLinkSMS(): Promise<any>;
     recordReturnBookingStatus(newBooking: any): Promise<any>;

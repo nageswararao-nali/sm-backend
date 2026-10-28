@@ -44,6 +44,10 @@ import { DriverLastLocationDetails } from 'src/trucks/models/driverLastLocDetail
 import { timeStamp } from 'console';
 import { Redis } from 'ioredis';
 import { REDIS_CLIENT } from 'src/common/redis/redis.provider';
+import { InjectQueue } from '@nestjs/bullmq';
+import { Queue } from 'bullmq';
+import { BookingDispatchEntity } from '../models/bookingDispatch.entity';
+import { BookingDispatchCandidateEntity } from '../models/bookingDispatchCandidate.entity';
 
 
 var crypto = require('crypto');
@@ -121,7 +125,13 @@ export class BookingService {
         @Inject(REDIS_CLIENT) private redis: Redis,
         @Inject(forwardRef(() => TourService))
         private tourService: TourService,
-        private locationService: LocationService
+        private locationService: LocationService,
+        @InjectRepository(BookingDispatchEntity)
+        private dispatchRepo: Repository<BookingDispatchEntity>,
+        @InjectRepository(BookingDispatchCandidateEntity)
+        private dispatchCandidateRepo: Repository<BookingDispatchCandidateEntity>,
+        @InjectQueue('dispatch-timeout')
+        private dispatchTimeoutQueue: Queue
 
 
     ){
@@ -219,19 +229,7 @@ export class BookingService {
             'dropoff_time' : reqBody.dropoff_time ? reqBody.dropoff_time : '',
             'dropofftime_flexiblity_status' : reqBody.dropofftime_flexiblity_status ? reqBody.dropofftime_flexiblity_status : '',
             'dropoff_flexible_time' : reqBody.dropoff_flexible_time ? reqBody.dropoff_flexible_time : '',
-            'commodity_type' : reqBody.commodity_type ? reqBody.commodity_type : '',
-            'other_commodity_name' : reqBody.other_commodity_name ? reqBody.other_commodity_name : '',
             'commodity_weight' : reqBody.commodity_weight ? reqBody.commodity_weight : '',
-            'weight_unit' : reqBody.weight_unit ? reqBody.weight_unit : '',
-            'commodity_whole_volume' : reqBody.commodity_whole_volume ? reqBody.commodity_whole_volume : '',
-            'volume_unit' : reqBody.volume_unit ? reqBody.volume_unit : '',
-            'commodity_length' : reqBody.commodity_length ? reqBody.commodity_length : 0,
-            'length_unit' : reqBody.length_unit ? reqBody.length_unit : '',
-            'commodity_breadth' : reqBody.commodity_breadth ? reqBody.commodity_breadth : 0,
-            'breadth_unit' : reqBody.breadth_unit ? reqBody.breadth_unit : '',
-            'commodity_height' : reqBody.commodity_height ? reqBody.commodity_height : 0,
-            'height_unit' : reqBody.height_unit ? reqBody.height_unit : '',
-            'packaging_type' : reqBody.packaging_type ? reqBody.packaging_type : '',
             'consignment_image' : reqBody.consignment_image ? reqBody.consignment_image : '',
             'receiver_name' : reqBody.dropoff_receiver_name ? reqBody.dropoff_receiver_name : 'Abhinesh',
             'receiver_contact' : reqBody.dropoff_receiver_contact ? reqBody.dropoff_receiver_contact : '9789083517',
@@ -496,8 +494,9 @@ export class BookingService {
                 }
             }
         }
+        this.broadcastMultiBooking(uid, bookings, reqBody)
         return bookings
-        
+
     }
 
     async createReturnBooking(bookingDetails: any): Promise<any> {
@@ -571,19 +570,7 @@ export class BookingService {
             'dropoff_time' : reqBody.dropoff_time ? reqBody.dropoff_time : '',
             'dropofftime_flexiblity_status' : reqBody.dropofftime_flexiblity_status ? reqBody.dropofftime_flexiblity_status : '',
             'dropoff_flexible_time' : reqBody.dropoff_flexible_time ? reqBody.dropoff_flexible_time : '',
-            'commodity_type' : reqBody.commodity_type ? reqBody.commodity_type : '',
-            'other_commodity_name' : reqBody.other_commodity_name ? reqBody.other_commodity_name : '',
             'commodity_weight' : reqBody.commodity_weight ? reqBody.commodity_weight : '',
-            'weight_unit' : reqBody.weight_unit ? reqBody.weight_unit : '',
-            'commodity_whole_volume' : reqBody.commodity_whole_volume ? reqBody.commodity_whole_volume : '',
-            'volume_unit' : reqBody.volume_unit ? reqBody.volume_unit : '',
-            'commodity_length' : reqBody.commodity_length ? reqBody.commodity_length : 0,
-            'length_unit' : reqBody.length_unit ? reqBody.length_unit : '',
-            'commodity_breadth' : reqBody.commodity_breadth ? reqBody.commodity_breadth : 0,
-            'breadth_unit' : reqBody.breadth_unit ? reqBody.breadth_unit : '',
-            'commodity_height' : reqBody.commodity_height ? reqBody.commodity_height : 0,
-            'height_unit' : reqBody.height_unit ? reqBody.height_unit : '',
-            'packaging_type' : reqBody.packaging_type ? reqBody.packaging_type : '',
             'consignment_image' : reqBody.consignment_image ? reqBody.consignment_image : '',
             'receiver_name' : reqBody.receiver_name ? reqBody.receiver_name : 'Prakash',
             'receiver_contact' : reqBody.receiver_contact ? reqBody.receiver_contact : '8270247441',
@@ -1045,13 +1032,6 @@ export class BookingService {
             let truckData = {}
             const bStatus = await this.getBSByBookingId(booking_id);
             const bStatuses = await this.getAllBSByBookingId(booking_id);
-            bookingData["commodity_type"] = await this.utilService.getCatName(bookingData.commodity_type)
-            // sibookingData["weight_unit"] = await this.utilService.getCatName(bookingData.weight_unit)
-            bookingData["volume_unit"] = await this.utilService.getCatName(bookingData.volume_unit)
-            bookingData["length_unit"] = await this.utilService.getCatName(bookingData.length_unit)
-            bookingData["breadth_unit"] = await this.utilService.getCatName(bookingData.breadth_unit)
-            bookingData["height_unit"] = await this.utilService.getCatName(bookingData.height_unit)
-            bookingData["packaging_type"] = await this.utilService.getCatName(bookingData.packaging_type)
             bookingData["booking_status"] = bStatus ? bStatus.status : null
             bookingData["tour_id"] = null
             bookingData["tracking"] = bStatuses
@@ -1371,7 +1351,7 @@ export class BookingService {
                 }
             }
             if(isSingleTrip) {
-                await this.bookingRepo.update(bookingId, {assign_tour_status: 0, assign_tour_status_graph: 0})
+                await this.bookingRepo.update(bookingId, {assign_tour_status_graph: 0})
                 await this.tourBookingDetails.delete({tour_id: tripData.tour_id})
                 await this.deleteBookingStatus({tour_id: tripData.tour_id})
                 await this.tourAssignTruckDriverRepository.delete({tour_id: tripData.tour_id})
@@ -1549,19 +1529,7 @@ export class BookingService {
             'dropoff_time' : reqBody.dropoff_time ? reqBody.dropoff_time : '',
             'dropofftime_flexiblity_status' : reqBody.dropofftime_flexiblity_status ? reqBody.dropofftime_flexiblity_status : '',
             'dropoff_flexible_time' : reqBody.dropoff_flexible_time ? reqBody.dropoff_flexible_time : '',
-            'commodity_type' : reqBody.commodity_type ? reqBody.commodity_type : '',
-            'other_commodity_name' : reqBody.other_commodity_name ? reqBody.other_commodity_name : '',
             'commodity_weight' : reqBody.commodity_weight ? reqBody.commodity_weight : '',
-            'weight_unit' : reqBody.weight_unit ? reqBody.weight_unit : '',
-            'commodity_whole_volume' : reqBody.commodity_whole_volume ? reqBody.commodity_whole_volume : '',
-            'volume_unit' : reqBody.volume_unit ? reqBody.volume_unit : '',
-            'commodity_length' : reqBody.commodity_length ? reqBody.commodity_length : 0,
-            'length_unit' : reqBody.length_unit ? reqBody.length_unit : '',
-            'commodity_breadth' : reqBody.commodity_breadth ? reqBody.commodity_breadth : 0,
-            'breadth_unit' : reqBody.breadth_unit ? reqBody.breadth_unit : '',
-            'commodity_height' : reqBody.commodity_height ? reqBody.commodity_height : 0,
-            'height_unit' : reqBody.height_unit ? reqBody.height_unit : '',
-            'packaging_type' : reqBody.packaging_type ? reqBody.packaging_type : '',
             'consignment_image' : reqBody.consignment_image ? reqBody.consignment_image : '',
             'receiver_name' : reqBody.receiver_name ? reqBody.receiver_name : 'Prakash',
             'receiver_contact' : reqBody.receiver_contact ? reqBody.receiver_contact : '8270247441',
@@ -4285,22 +4253,233 @@ Please find attached the report.
 
     }
 
-    async findNearbyDrivers(lat: any, lng: any, radiusKm: number) {
+    async findNearbyDrivers(lat: any, lng: any, radiusKm: number, vehicleType: string) {
         const radiusMeters = radiusKm * 1000;
-    
-        return this.driverLastLocRepo.query(
+
+        let drivers = await this.driverLastLocRepo.query(
           `
           SELECT *,
                  ST_Distance(location, ST_MakePoint($1, $2)::geography) AS distance
           FROM driver_last_location_details
-          WHERE ST_DWithin(location, ST_MakePoint($1, $2)::geography, $3) and vehicle_type = '2W'
+          WHERE ST_DWithin(location, ST_MakePoint($1, $2)::geography, $3) and vehicle_type = $4
           ORDER BY distance ASC
           `,
-          [lng, lat, radiusMeters],
+          [lng, lat, radiusMeters, vehicleType],
         );
+
+        // fall back to every on-duty driver of this vehicle type, regardless of distance,
+        // rather than silently broadcasting to nobody when nothing is within radiusKm
+        if (!drivers.length) {
+            drivers = await this.driverLastLocRepo.find({where: {vehicle_type: vehicleType}});
+        }
+
+        return drivers;
     }
 
+    // Broadcasts a just-created multi_booking_id group to every eligible on-duty driver.
+    // Called from addMultiBooking once all leg rows are saved - never throws, since a
+    // broadcast failure must not fail the booking-creation response.
+    async broadcastMultiBooking(multiBookingId: string, legs: BookingEntity[], reqBody: any): Promise<any> {
+        try {
+            if (!legs.length) return;
+            const firstLeg = legs[0];
+            const vehicleType = reqBody.vehicle_type || firstLeg.vehicle_type;
+            if (!vehicleType) {
+                console.log('broadcastMultiBooking: no vehicle_type on booking, skipping', multiBookingId);
+                return;
+            }
+            const driverRadiusKm = 15;
 
+            const drivers = await this.findNearbyDrivers(firstLeg.pickup_lat, firstLeg.pickup_long, driverRadiusKm, vehicleType);
+            if (!drivers.length) {
+                console.log('broadcastMultiBooking: no on-duty drivers found for', multiBookingId, vehicleType);
+                return;
+            }
+
+            const expiresAt = moment().add(30, 'seconds').toDate();
+            await this.dispatchRepo.save({
+                multi_booking_id: multiBookingId,
+                status: 'broadcasting',
+                expires_at: expiresAt,
+            });
+
+            // de-duplicate the shared stop: multipickup shares one drop, multidrop shares one pickup
+            const isMultiPickup = reqBody.trip_type === 'multipickup';
+            const isMultiDrop = reqBody.trip_type === 'multidrop';
+            const pickups = isMultiPickup ? legs.map(l => l.pickup_location) : [firstLeg.pickup_location];
+            const drops = isMultiDrop ? legs.map(l => l.dropoff_location) : [firstLeg.dropoff_location];
+
+            const tokens: string[] = [];
+            const candidateRows = [];
+            for (const driver of drivers) {
+                // driver_last_location_details.driver_id is actually a user_id, see
+                // driver.service.ts's updateDriverLastLocDetails (saves reqBody.user_id here)
+                const driverEntity = await this.driverRepo.findOneBy({user_id: driver.driver_id});
+                if (!driverEntity) continue;
+                const pushToken = await this.utilService.getDeviceToken(driver.driver_id);
+                candidateRows.push({
+                    multi_booking_id: multiBookingId,
+                    driver_id: driver.driver_id,
+                    truck_id: driver.truck_id,
+                    truck_owner_id: driverEntity.truck_owner_id,
+                    push_token: pushToken || null,
+                    status: 'pending',
+                });
+                if (pushToken) tokens.push(pushToken);
+            }
+            if (candidateRows.length) {
+                await this.dispatchCandidateRepo.save(candidateRows);
+            }
+
+            if (tokens.length) {
+                const TITLE = 'New booking nearby';
+                const BODY = pickups.length > 1
+                    ? `${pickups.length} pickups → ${drops[0]}`
+                    : (drops.length > 1 ? `${pickups[0]} → ${drops.length} drops` : `${pickups[0]} → ${drops[0]}`);
+                await this.utilService.sendPushNotification(TITLE, BODY, tokens, {
+                    type: 'DISPATCH_REQUEST',
+                    multiBookingId,
+                    expiresAt: expiresAt.toISOString(),
+                    pickups,
+                    drops,
+                });
+            }
+
+            await this.dispatchTimeoutQueue.add('check-timeout', {multiBookingId}, {delay: 30000});
+        } catch (e) {
+            console.log('broadcastMultiBooking error', e);
+        }
+    }
+
+    // The race-safe accept: the conditional UPDATE below is the actual correctness
+    // guarantee (exactly one concurrent caller can flip status broadcasting->assigned),
+    // everything after it is just cleanup/UX for whoever won vs. lost.
+    async acceptDispatch(reqBody: any): Promise<any> {
+        const { multi_booking_id, driver_id } = reqBody;
+
+        const updateResult = await this.dispatchRepo.createQueryBuilder()
+            .update(BookingDispatchEntity)
+            .set({ status: 'assigned', winner_driver_id: driver_id })
+            .where('multi_booking_id = :id AND status = :s', { id: multi_booking_id, s: 'broadcasting' })
+            .execute();
+
+        if (!updateResult.affected) {
+            return { success: false, message: 'This booking has already been assigned to another driver' };
+        }
+
+        await this.dispatchCandidateRepo.update(
+            { multi_booking_id, driver_id },
+            { status: 'accepted', responded_at: new Date() }
+        );
+        const losers = await this.dispatchCandidateRepo.find({ where: { multi_booking_id, status: 'pending' } });
+        if (losers.length) {
+            await this.dispatchCandidateRepo.update(
+                { multi_booking_id, status: 'pending' },
+                { status: 'lost', responded_at: new Date() }
+            );
+            const loserTokens = losers.map(l => l.push_token).filter(Boolean);
+            if (loserTokens.length) {
+                await this.utilService.sendPushNotification(
+                    'Booking no longer available',
+                    'This booking has already been accepted by another driver.',
+                    loserTokens,
+                    { type: 'DISPATCH_CLOSED', multiBookingId: multi_booking_id }
+                );
+            }
+        }
+
+        const legs = await this.bookingRepo.find({ where: { multi_booking_id }, order: { id: 'ASC' } });
+        const driverData = await this.driverRepo.findOneBy({ user_id: driver_id });
+        if (!legs.length || !driverData) {
+            return { success: false, message: 'Booking or driver record not found' };
+        }
+
+        // auto-create the trip rows (addTour requires a trip_id per leg, normally a
+        // manager-driven step via addTrip). One trip_id PER booking, equal to that
+        // booking's own id - matches the established convention in tour.service.ts's
+        // own automated callers (addClosedTour, the return-booking flow), both of which
+        // set trip_id: booking.id rather than a value shared across several bookings;
+        // addBookingStatusTimeData even branches specifically on booking_id == trip_id
+        // as the common case.
+        for (const leg of legs) {
+            const tripIdStr = leg.id.toString();
+            await this.addTrip({
+                booking_id: leg.id,
+                trip_id: tripIdStr,
+                customer_id: leg.customer_id,
+                engaged_consolidation_manager: leg.engaged_consolidation_manager,
+                pickup_location: leg.pickup_location,
+                pickup_time: leg.pickup_time,
+                dropoff_location: leg.dropoff_location,
+                dropoff_time: leg.dropoff_time,
+                pickup_lat: leg.pickup_lat,
+                pickup_long: leg.pickup_long,
+                dropoff_lat: leg.dropoff_lat,
+                dropoff_long: leg.dropoff_long,
+            });
+        }
+
+        // build addTour's sequence[] - every leg gets its OWN pickup+drop pair tied to its
+        // own booking_id, matching exactly what the manual manager-interface flow produces
+        // (manager-interface/src/pages/Dashboard/Trips.js's handleCheckBoxChange: every
+        // selected trip contributes one pickup entry + one drop entry, never de-duplicated,
+        // even when several trips share the same physical drop location). This pairing is
+        // load-bearing elsewhere in tour.service.ts (e.g. completeStop/updateSeq look up
+        // tour_route rows by {booking_id, transport_type} to drive per-booking status writes
+        // like "Completed drop") - collapsing a shared stop into one row for a multipickup/
+        // multidrop group would leave some booking_ids with no drop (or no pickup) tour_route
+        // row at all and break that tracking. Pickups are still sequenced before drops (not
+        // interleaved per-leg) so a multipickup/multidrop route doesn't revisit the shared
+        // stop once per leg.
+        const sequence = [];
+        let seqNum = 1;
+        for (const leg of legs) {
+            sequence.push({
+                booking_id: leg.id, trip_id: leg.id.toString(), transport_type: 'pickup',
+                sequence_number: seqNum++, pickup_lat: leg.pickup_lat, pickup_long: leg.pickup_long,
+                location_address: leg.pickup_location, consolidation_center_id: null,
+            });
+        }
+        for (const leg of legs) {
+            sequence.push({
+                booking_id: leg.id, trip_id: leg.id.toString(), transport_type: 'drop',
+                sequence_number: seqNum++, dropoff_lat: leg.dropoff_lat, dropoff_long: leg.dropoff_long,
+                location_address: leg.dropoff_location, consolidation_center_id: null,
+            });
+        }
+
+        const tourData = await this.tourService.addTour({
+            booking_id: legs.map(l => l.id),
+            driver_id,
+            engaged_consolidation_manager: legs[0].engaged_consolidation_manager,
+            tour_fare: legs.reduce((sum, l) => sum + (Number(l.estimated_fare) || 0), 0),
+            sequence,
+        });
+
+        // the driver already won the race, so accept immediately rather than leaving the
+        // tour in addTour's default awaiting-accept state
+        const acceptResult = await this.tourService.acceptTour({
+            tour_id: tourData.id,
+            driver_id,
+            truck_id: driverData.truck_id,
+            truck_owner_id: driverData.truck_owner_id,
+        });
+
+        await this.dispatchRepo.update(
+            { multi_booking_id },
+            { winner_truck_id: driverData.truck_id, winner_truck_owner_id: driverData.truck_owner_id, tour_id: tourData.id }
+        );
+
+        return { success: true, tour_id: tourData.id, driver_name: acceptResult.driver_name };
+    }
+
+    async declineDispatch(reqBody: any): Promise<any> {
+        await this.dispatchCandidateRepo.update(
+            { multi_booking_id: reqBody.multi_booking_id, driver_id: reqBody.driver_id, status: 'pending' },
+            { status: 'expired', responded_at: new Date() }
+        );
+        return { success: true };
+    }
 
     async deleteBookingTour(bookingId):Promise<any> {
         
@@ -4400,7 +4579,7 @@ Please find attached the report.
         const driverRadius = 500
         const last_track_diff = 30
         // const driverRadius = 4
-        let drivers = await this.findNearbyDrivers(13.024591518533352, 80.17052038876145, driverRadius)
+        let drivers = await this.findNearbyDrivers(13.024591518533352, 80.17052038876145, driverRadius, '2W')
         console.log(drivers)
         if(drivers && drivers.length) {
             for(let driver of drivers) {
