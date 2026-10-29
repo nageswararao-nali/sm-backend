@@ -135,6 +135,9 @@ let BookingService = class BookingService {
     async addBooking(reqBody) {
         var _a, _b, _c;
         const customer = await this.utilService.getUserById(reqBody.customer_id);
+        if (!customer) {
+            throw new common_1.BadRequestException(`Customer with id ${reqBody.customer_id} not found`);
+        }
         const customerName = customer.name;
         let loading_charge = 0;
         let toll_charge = 0;

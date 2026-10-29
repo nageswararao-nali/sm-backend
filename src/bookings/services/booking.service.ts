@@ -1,4 +1,4 @@
-import { Injectable, Inject, forwardRef } from '@nestjs/common';
+import { Injectable, Inject, forwardRef, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Point } from 'geojson';
 import { TourAssignTruckDriversEntity } from 'src/tours/models/tourAssignTruckDrivers.entity';
@@ -142,6 +142,9 @@ export class BookingService {
 
     async addBooking(reqBody: any): Promise<any> {
         const customer = await this.utilService.getUserById(reqBody.customer_id)
+        if (!customer) {
+            throw new BadRequestException(`Customer with id ${reqBody.customer_id} not found`)
+        }
         const customerName = customer.name
         // const customerName = await this.utilService.getName(reqBody.customer_id)
         let loading_charge: any = 0
