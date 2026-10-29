@@ -101,9 +101,19 @@ let DriverService = class DriverService {
     async driverDetails(mobile) {
         let driverDetails = {};
         const driverData = await this.driverRepository.findOne({ where: { mobile_number: mobile } });
-        driverDetails.driverData = driverData;
-        const userData = await this.userService.getUserById(driverData.user_id);
-        driverDetails.userData = userData;
+        if (driverData) {
+            driverDetails.driverData = driverData;
+            const userData = await this.userService.getUserById(driverData.user_id);
+            driverDetails.userData = userData;
+        }
+        else {
+            const userData = await this.usersRepository.findOneBy({ mobile });
+            if (!userData) {
+                return null;
+            }
+            driverDetails.driverData = { name: userData.name };
+            driverDetails.userData = userData;
+        }
         return driverDetails;
     }
     async updateDriver(id, reqBody) {

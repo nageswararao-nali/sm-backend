@@ -102,9 +102,23 @@ export class DriverService {
     async driverDetails(mobile: string): Promise<any> {
         let driverDetails: any = {}
         const driverData = await this.driverRepository.findOne({where: {mobile_number: mobile}})
-        driverDetails.driverData = driverData
-        const userData = await this.userService.getUserById(driverData.user_id)
-        driverDetails.userData = userData
+        if (driverData) {
+            driverDetails.driverData = driverData
+            const userData = await this.userService.getUserById(driverData.user_id)
+            driverDetails.userData = userData
+        } else {
+            // checkUser() allows both Driver and Owner accounts to log into the trucker
+            // app, but an Owner has no row of their own in the drivers table (that table
+            // is for the driver(s) assigned to their truck, looked up separately via
+            // driverByOwner). Fall back to the users table directly instead of crashing
+            // on driverData.user_id below.
+            const userData = await this.usersRepository.findOneBy({mobile})
+            if (!userData) {
+                return null
+            }
+            driverDetails.driverData = {name: userData.name}
+            driverDetails.userData = userData
+        }
         return driverDetails
     }
 
