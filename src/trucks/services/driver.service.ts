@@ -100,8 +100,10 @@ export class DriverService {
     }
 
     async driverDetails(mobile: string): Promise<any> {
+        console.log("[AUTH] driverDetails called with mobile:", mobile)
         let driverDetails: any = {}
         const driverData = await this.driverRepository.findOne({where: {mobile_number: mobile}})
+        console.log("[AUTH] driverDetails - drivers table match:", !!driverData)
         if (driverData) {
             driverDetails.driverData = driverData
             const userData = await this.userService.getUserById(driverData.user_id)
@@ -113,12 +115,14 @@ export class DriverService {
             // driverByOwner). Fall back to the users table directly instead of crashing
             // on driverData.user_id below.
             const userData = await this.usersRepository.findOneBy({mobile})
+            console.log("[AUTH] driverDetails - users table fallback match:", !!userData)
             if (!userData) {
                 return null
             }
             driverDetails.driverData = {name: userData.name}
             driverDetails.userData = userData
         }
+        console.log("[AUTH] driverDetails result userData.id:", driverDetails.userData?.id)
         return driverDetails
     }
 

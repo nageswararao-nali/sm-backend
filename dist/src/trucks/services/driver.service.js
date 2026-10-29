@@ -99,8 +99,11 @@ let DriverService = class DriverService {
         return driverData;
     }
     async driverDetails(mobile) {
+        var _a;
+        console.log("[AUTH] driverDetails called with mobile:", mobile);
         let driverDetails = {};
         const driverData = await this.driverRepository.findOne({ where: { mobile_number: mobile } });
+        console.log("[AUTH] driverDetails - drivers table match:", !!driverData);
         if (driverData) {
             driverDetails.driverData = driverData;
             const userData = await this.userService.getUserById(driverData.user_id);
@@ -108,12 +111,14 @@ let DriverService = class DriverService {
         }
         else {
             const userData = await this.usersRepository.findOneBy({ mobile });
+            console.log("[AUTH] driverDetails - users table fallback match:", !!userData);
             if (!userData) {
                 return null;
             }
             driverDetails.driverData = { name: userData.name };
             driverDetails.userData = userData;
         }
+        console.log("[AUTH] driverDetails result userData.id:", (_a = driverDetails.userData) === null || _a === void 0 ? void 0 : _a.id);
         return driverDetails;
     }
     async updateDriver(id, reqBody) {
