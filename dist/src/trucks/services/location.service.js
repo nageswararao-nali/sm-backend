@@ -3750,6 +3750,10 @@ let LocationService = class LocationService {
                 rate_data = await this.gmRates.findOne({ where: { quantity: (0, typeorm_2.MoreThanOrEqual)(total_trip_weight), company_id: 0 }, order: { quantity: 'ASC' } });
             }
         }
+        if (!rate_data) {
+            console.log("getMultiBookingFare: no rate configured for weight " + total_trip_weight + " (weight_unit: " + reqBody.weight_unit + ", customer_id: " + reqBody.customer_id + ")");
+            return null;
+        }
         base_fare = rate_data.base_rate;
         estimate_fare_info = estimate_fare_info + ", base: " + base_fare;
         const points_count = nodes_visit > 0 ? nodes_visit : 0;
