@@ -3436,6 +3436,10 @@ Please find attached the report.
     }
     async findNearbyDrivers(lat, lng, radiusKm, vehicleType) {
         const radiusMeters = radiusKm * 1000;
+        console.log('[DISPATCH] findNearbyDrivers: lat=' + lat + ' lng=' + lng + ' radiusKm=' + radiusKm + ' vehicleType=' + vehicleType);
+        const allRows = await this.driverLastLocRepo.find();
+        console.log('[DISPATCH] findNearbyDrivers: total rows in driver_last_location_details = ' + allRows.length);
+        console.log('[DISPATCH] findNearbyDrivers: rows -> ' + JSON.stringify(allRows.map((r) => ({ driver_id: r.driver_id, vehicle_type: r.vehicle_type, truck_id: r.truck_id, latitude: r.latitude, longitude: r.longitude, last_tracked_at: r.last_tracked_at }))));
         let drivers = await this.driverLastLocRepo.query(`
           SELECT *,
                  ST_Distance(location, ST_MakePoint($1, $2)::geography) AS distance
@@ -3443,25 +3447,33 @@ Please find attached the report.
           WHERE ST_DWithin(location, ST_MakePoint($1, $2)::geography, $3) and vehicle_type = $4
           ORDER BY distance ASC
           `, [lng, lat, radiusMeters, vehicleType]);
+        console.log('[DISPATCH] findNearbyDrivers: within-radius + vehicle_type match count = ' + drivers.length);
         if (!drivers.length) {
             drivers = await this.driverLastLocRepo.find({ where: { vehicle_type: vehicleType } });
+            console.log('[DISPATCH] findNearbyDrivers: fallback (any distance) vehicle_type match count = ' + drivers.length);
         }
         return drivers;
     }
     async broadcastMultiBooking(multiBookingId, legs, reqBody) {
         try {
-            if (!legs.length)
+            console.log('[DISPATCH] broadcastMultiBooking: start multiBookingId=' + multiBookingId + ' legs=' + legs.length);
+            if (!legs.length) {
+                console.log('[DISPATCH] broadcastMultiBooking: no legs, aborting');
                 return;
+            }
             const firstLeg = legs[0];
             const vehicleType = reqBody.vehicle_type || firstLeg.vehicle_type;
+            console.log('[DISPATCH] broadcastMultiBooking: resolved vehicleType=' + vehicleType + ' (reqBody.vehicle_type=' + reqBody.vehicle_type + ', firstLeg.vehicle_type=' + firstLeg.vehicle_type + ')');
+            console.log('[DISPATCH] broadcastMultiBooking: pickup lat/long=' + firstLeg.pickup_lat + ',' + firstLeg.pickup_long);
             if (!vehicleType) {
-                console.log('broadcastMultiBooking: no vehicle_type on booking, skipping', multiBookingId);
+                console.log('[DISPATCH] broadcastMultiBooking: no vehicle_type on booking, skipping', multiBookingId);
                 return;
             }
             const driverRadiusKm = 15;
             const drivers = await this.findNearbyDrivers(firstLeg.pickup_lat, firstLeg.pickup_long, driverRadiusKm, vehicleType);
+            console.log('[DISPATCH] broadcastMultiBooking: findNearbyDrivers returned ' + drivers.length + ' candidate(s)');
             if (!drivers.length) {
-                console.log('broadcastMultiBooking: no on-duty drivers found for', multiBookingId, vehicleType);
+                console.log('[DISPATCH] broadcastMultiBooking: no on-duty drivers found for', multiBookingId, vehicleType);
                 return;
             }
             const expiresAt = moment().add(30, 'seconds').toDate();
@@ -3470,6 +3482,7 @@ Please find attached the report.
                 status: 'broadcasting',
                 expires_at: expiresAt,
             });
+            console.log('[DISPATCH] broadcastMultiBooking: saved booking_dispatch row, status=broadcasting');
             const isMultiPickup = reqBody.trip_type === 'multipickup';
             const isMultiDrop = reqBody.trip_type === 'multidrop';
             const pickups = isMultiPickup ? legs.map(l => l.pickup_location) : [firstLeg.pickup_location];
@@ -3478,9 +3491,11 @@ Please find attached the report.
             const candidateRows = [];
             for (const driver of drivers) {
                 const driverEntity = await this.driverRepo.findOneBy({ user_id: driver.driver_id });
+                console.log('[DISPATCH] candidate driver_id=' + driver.driver_id + ': drivers-table match = ' + (!!driverEntity));
                 if (!driverEntity)
                     continue;
                 const pushToken = await this.utilService.getDeviceToken(driver.driver_id);
+                console.log('[DISPATCH] candidate driver_id=' + driver.driver_id + ': push token = ' + (pushToken ? pushToken.substring(0, 20) + '...' : 'NONE'));
                 candidateRows.push({
                     multi_booking_id: multiBookingId,
                     driver_id: driver.driver_id,
@@ -3495,11 +3510,13 @@ Please find attached the report.
             if (candidateRows.length) {
                 await this.dispatchCandidateRepo.save(candidateRows);
             }
+            console.log('[DISPATCH] broadcastMultiBooking: saved ' + candidateRows.length + ' candidate row(s), ' + tokens.length + ' with a push token');
             if (tokens.length) {
                 const TITLE = 'New booking nearby';
                 const BODY = pickups.length > 1
                     ? `${pickups.length} pickups → ${drops[0]}`
                     : (drops.length > 1 ? `${pickups[0]} → ${drops.length} drops` : `${pickups[0]} → ${drops[0]}`);
+                console.log('[DISPATCH] broadcastMultiBooking: sending push to ' + tokens.length + ' token(s): ' + BODY);
                 await this.utilService.sendPushNotification(TITLE, BODY, tokens, {
                     type: 'DISPATCH_REQUEST',
                     multiBookingId,
@@ -3507,11 +3524,16 @@ Please find attached the report.
                     pickups,
                     drops,
                 });
+                console.log('[DISPATCH] broadcastMultiBooking: push send call completed');
+            }
+            else {
+                console.log('[DISPATCH] broadcastMultiBooking: no push tokens collected, nothing sent');
             }
             await this.dispatchTimeoutQueue.add('check-timeout', { multiBookingId }, { delay: 30000 });
+            console.log('[DISPATCH] broadcastMultiBooking: done, timeout job queued');
         }
         catch (e) {
-            console.log('broadcastMultiBooking error', e);
+            console.log('[DISPATCH] broadcastMultiBooking error', e);
         }
     }
     async acceptDispatch(reqBody) {
