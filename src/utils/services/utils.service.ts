@@ -303,7 +303,7 @@ export class UtilsService {
         return seqData;
     }
 
-    async sendPushNotification(title: string, body: string, savedPushTokens: any, data: any = {} ) {
+    async sendPushNotification(title: string, body: string, savedPushTokens: any, data: any = {}, silent: boolean = false) {
         let notifications = [];
         for (let pushToken of savedPushTokens) {
           if (!Expo.isExpoPushToken(pushToken)) {
@@ -311,13 +311,16 @@ export class UtilsService {
             continue;
           }
 
-          notifications.push({
-            to: pushToken,
-            sound: "default",
-            title: title,
-            body: body,
-            data: { body, ...data }
-          });
+          // silent = data-only message: no "notification" block means FCM delivers it to
+          // the app's background handler (backgroundNotificationTask.ts) instead of the OS
+          // auto-displaying it via the default tray UI when the app is backgrounded/killed -
+          // required for notifee's full-screen ringing dispatch UI to actually be what the
+          // driver sees, rather than a plain system notification the app never gets a chance
+          // to intercept and upgrade.
+          const notification: any = silent
+            ? { to: pushToken, priority: 'high', data: { body, ...data } }
+            : { to: pushToken, sound: "default", title, body, data: { body, ...data } };
+          notifications.push(notification);
         }
       
         let chunks = expo.chunkPushNotifications(notifications);

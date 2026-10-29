@@ -276,19 +276,16 @@ let UtilsService = class UtilsService {
         const seqData = await this.tourRouteRepository.findOneBy({ id });
         return seqData;
     }
-    async sendPushNotification(title, body, savedPushTokens, data = {}) {
+    async sendPushNotification(title, body, savedPushTokens, data = {}, silent = false) {
         let notifications = [];
         for (let pushToken of savedPushTokens) {
             if (!expo_server_sdk_1.Expo.isExpoPushToken(pushToken)) {
                 continue;
             }
-            notifications.push({
-                to: pushToken,
-                sound: "default",
-                title: title,
-                body: body,
-                data: Object.assign({ body }, data)
-            });
+            const notification = silent
+                ? { to: pushToken, priority: 'high', data: Object.assign({ body }, data) }
+                : { to: pushToken, sound: "default", title, body, data: Object.assign({ body }, data) };
+            notifications.push(notification);
         }
         let chunks = expo.chunkPushNotifications(notifications);
         (async () => {

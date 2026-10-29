@@ -51,7 +51,7 @@ export declare class UtilsService {
     getTourPickupDistance(loc: any, sId: number): Promise<any>;
     updateSeq(id: number, reqBody: any): Promise<any>;
     getSeq(id: number): Promise<any>;
-    sendPushNotification(title: string, body: string, savedPushTokens: any, data?: any): Promise<void>;
+    sendPushNotification(title: string, body: string, savedPushTokens: any, data?: any, silent?: boolean): Promise<void>;
     closeSession(user_id: number, from_manager?: boolean): Promise<any>;
     uploadS3(params: any): Promise<unknown>;
     getS3(): S3;

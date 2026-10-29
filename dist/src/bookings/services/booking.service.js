@@ -3523,7 +3523,7 @@ Please find attached the report.
                     expiresAt: expiresAt.toISOString(),
                     pickups,
                     drops,
-                });
+                }, true);
                 console.log('[DISPATCH] broadcastMultiBooking: push send call completed');
             }
             else {
