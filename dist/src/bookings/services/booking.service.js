@@ -208,7 +208,7 @@ let BookingService = class BookingService {
         }
         const bookingInput = {
             'customer_id': reqBody.customer_id,
-            'engaged_consolidation_manager': reqBody.engaged_consolidation_manager ? reqBody.engaged_consolidation_manager : '',
+            'engaged_consolidation_manager': reqBody.engaged_consolidation_manager ? reqBody.engaged_consolidation_manager : 0,
             'pickup_location': reqBody.pickup_location ? reqBody.pickup_location : '',
             'pickup_city': reqBody.pickup_city ? reqBody.pickup_city : '',
             'pickup_state': reqBody.pickup_state ? reqBody.pickup_state : '',
@@ -505,7 +505,7 @@ let BookingService = class BookingService {
         }
         const bookingInput = {
             'customer_id': reqBody.customer_id,
-            'engaged_consolidation_manager': reqBody.engaged_consolidation_manager ? reqBody.engaged_consolidation_manager : '',
+            'engaged_consolidation_manager': reqBody.engaged_consolidation_manager ? reqBody.engaged_consolidation_manager : 0,
             'pickup_location': reqBody.pickup_location ? reqBody.pickup_location : '',
             'pickup_city': reqBody.pickup_city ? reqBody.pickup_city : '',
             'pickup_state': reqBody.pickup_state ? reqBody.pickup_state : '',
@@ -557,7 +557,7 @@ let BookingService = class BookingService {
                 };
                 const tripInput = {
                     'customer_id': reqBody.customer_id,
-                    'engaged_consolidation_manager': reqBody.engaged_consolidation_manager ? reqBody.engaged_consolidation_manager : '',
+                    'engaged_consolidation_manager': reqBody.engaged_consolidation_manager ? reqBody.engaged_consolidation_manager : 0,
                     'pickup_location': reqBody.pickup_location ? reqBody.pickup_location : '',
                     'pickup_time': reqBody.pickup_time ? reqBody.pickup_time : '',
                     'dropoff_location': reqBody.dropoff_location ? reqBody.dropoff_location : '',
@@ -1005,7 +1005,7 @@ let BookingService = class BookingService {
         const booking = await this.bookingRepo.findOneBy({ id: reqBody.booking_id });
         const tripInput = {
             'customer_id': reqBody.customer_id,
-            'engaged_consolidation_manager': reqBody.engaged_consolidation_manager ? reqBody.engaged_consolidation_manager : '',
+            'engaged_consolidation_manager': reqBody.engaged_consolidation_manager ? reqBody.engaged_consolidation_manager : 0,
             'pickup_location': reqBody.pickup_location ? reqBody.pickup_location : '',
             'pickup_time': reqBody.pickup_time ? reqBody.pickup_time : '',
             'dropoff_location': reqBody.dropoff_location ? reqBody.dropoff_location : '',
@@ -1408,7 +1408,7 @@ let BookingService = class BookingService {
         }
         const bookingInput = {
             'customer_id': customer.id,
-            'engaged_consolidation_manager': reqBody.engaged_consolidation_manager ? reqBody.engaged_consolidation_manager : '',
+            'engaged_consolidation_manager': reqBody.engaged_consolidation_manager ? reqBody.engaged_consolidation_manager : 0,
             'pickup_location': pickupAddress,
             'pickup_city': reqBody.pickup_city ? reqBody.pickup_city : '',
             'pickup_state': reqBody.pickup_state ? reqBody.pickup_state : '',
