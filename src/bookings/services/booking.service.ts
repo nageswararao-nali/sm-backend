@@ -4335,17 +4335,23 @@ Please find attached the report.
                 const driverEntity = await this.driverRepo.findOneBy({user_id: driver.driver_id});
                 console.log('[DISPATCH] candidate driver_id='+driver.driver_id+': drivers-table match = '+(!!driverEntity))
                 if (!driverEntity) continue;
-                const pushToken = await this.utilService.getDeviceToken(driver.driver_id);
-                console.log('[DISPATCH] candidate driver_id='+driver.driver_id+': push token = '+(pushToken ? pushToken.substring(0, 20)+'...' : 'NONE'))
+                // device_token can hold several comma-joined tokens (one per device/
+                // re-login, see users.service.ts's updateDeviceToken, which only ever
+                // appends and never dedupes/replaces) - split before using any of them,
+                // same as updateAvailable/other existing call sites already do, otherwise
+                // the whole joined string gets sent to Expo as one malformed "token".
+                const rawPushToken = await this.utilService.getDeviceToken(driver.driver_id);
+                const driverTokens = rawPushToken ? rawPushToken.split(',').map((t: string) => t.trim()).filter(Boolean) : [];
+                console.log('[DISPATCH] candidate driver_id='+driver.driver_id+': push token(s) = '+(driverTokens.length ? JSON.stringify(driverTokens) : 'NONE'))
                 candidateRows.push({
                     multi_booking_id: multiBookingId,
                     driver_id: driver.driver_id,
                     truck_id: driver.truck_id,
                     truck_owner_id: driverEntity.truck_owner_id,
-                    push_token: pushToken || null,
+                    push_token: driverTokens[0] || null,
                     status: 'pending',
                 });
-                if (pushToken) tokens.push(pushToken);
+                tokens.push(...driverTokens);
             }
             if (candidateRows.length) {
                 await this.dispatchCandidateRepo.save(candidateRows);
