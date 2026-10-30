@@ -929,7 +929,6 @@ export class TourService {
         let driverData = await this.driversRepository.findOneBy({user_id: reqBody.driver_id})
         for (let bId of reqBody.booking_id) {
             let updBooking = {}
-            updBooking["assign_tour_status"] = 1 
             updBooking["assign_tour_status_graph"] = 1
             // if(reqBody.is_closed_tour) {
                 updBooking['driver_name'] = driverData.name

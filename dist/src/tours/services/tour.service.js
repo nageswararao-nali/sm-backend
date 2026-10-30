@@ -864,7 +864,6 @@ let TourService = class TourService {
         let driverData = await this.driversRepository.findOneBy({ user_id: reqBody.driver_id });
         for (let bId of reqBody.booking_id) {
             let updBooking = {};
-            updBooking["assign_tour_status"] = 1;
             updBooking["assign_tour_status_graph"] = 1;
             updBooking['driver_name'] = driverData.name;
             updBooking['driver_mobile'] = driverData.mobile_number;
