@@ -4456,18 +4456,21 @@ Please find attached the report.
             { status: 'accepted', responded_at: new Date() }
         );
         const losers = await this.dispatchCandidateRepo.find({ where: { multi_booking_id, status: 'pending' } });
+        console.log('[DISPATCH] acceptDispatch: winner driver_id='+driver_id+', found '+losers.length+' other pending candidate(s) for multi_booking_id='+multi_booking_id)
         if (losers.length) {
             await this.dispatchCandidateRepo.update(
                 { multi_booking_id, status: 'pending' },
                 { status: 'lost', responded_at: new Date() }
             );
             const loserTokens = losers.map(l => l.push_token).filter(Boolean);
+            console.log('[DISPATCH] acceptDispatch: loser driver_id(s)='+JSON.stringify(losers.map(l => l.driver_id))+', with push_token='+JSON.stringify(losers.map(l => !!l.push_token)))
             if (loserTokens.length) {
                 // silent (see broadcastMultiBooking's matching note) so this reaches the
                 // background task directly instead of the OS auto-displaying a second,
                 // separate notification alongside the still-ringing one - the client cancels
                 // the existing ringing notification itself rather than this push displaying
                 // any notification of its own.
+                console.log('[DISPATCH] acceptDispatch: sending DISPATCH_CLOSED to '+loserTokens.length+' token(s)')
                 await this.utilService.sendPushNotification(
                     'Booking no longer available',
                     'This booking has already been accepted by another driver.',
@@ -4475,6 +4478,8 @@ Please find attached the report.
                     { type: 'DISPATCH_CLOSED', multiBookingId: multi_booking_id },
                     true
                 );
+            } else {
+                console.log('[DISPATCH] acceptDispatch: no push tokens on loser candidate row(s), nothing sent')
             }
         }
 
