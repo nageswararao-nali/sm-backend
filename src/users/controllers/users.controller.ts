@@ -4,6 +4,13 @@ import { from, Observable } from 'rxjs';
 import { Users } from '../models/users.interface';
 import { UsersService } from '../services/users.service';
 import { Public } from 'src/common/decorators/public.decorator';
+
+// Test/admin numbers that skip the real MSG91 send+verify round trip - sendOtp returns
+// success without actually sending an SMS, and verifyOtp accepts the fixed '1234' OTP
+// instead of checking against MSG91, so these numbers can be used for testing without
+// burning SMS credits or needing a real device to receive the OTP.
+const OTP_BYPASS_MOBILES = ['6300359889', '9030935373', '8179730725', '8778620133', '7010020749']
+
 @Controller('users')
 export class UsersController {
     constructor(private usersService: UsersService, private jwtService: JwtService){}
@@ -15,7 +22,10 @@ export class UsersController {
 
     @Public()
     @Post('sendOtp')
-    sendOtp(@Body() reqBody: any): Promise<Observable<any>> {
+    sendOtp(@Body() reqBody: any): Promise<Observable<any>> | any {
+        if(OTP_BYPASS_MOBILES.indexOf(reqBody.mobile) > -1) {
+            return {type: 'success', message: 'OTP bypassed for test number'}
+        }
         return this.usersService.sendOtp(reqBody.mobile)
     }
 
@@ -25,9 +35,8 @@ export class UsersController {
         if(reqBody.isAdmin) {
             return {type: 'success'}
         }
-        let adminMobiles = ['6300359889', '9030935373', '8179730725', '8778620133', '7010020749']
         // console.log(reqBody)
-        if(adminMobiles.indexOf(reqBody.mobile) > -1 && reqBody.otp == '1234') {
+        if(OTP_BYPASS_MOBILES.indexOf(reqBody.mobile) > -1 && reqBody.otp == '1234') {
             return {type: 'success'}
         }
         return this.usersService.verifyOtp(reqBody.mobile, reqBody.otp)

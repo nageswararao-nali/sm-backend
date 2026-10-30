@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
 const users_service_1 = require("../services/users.service");
 const public_decorator_1 = require("../../common/decorators/public.decorator");
+const OTP_BYPASS_MOBILES = ['6300359889', '9030935373', '8179730725', '8778620133', '7010020749'];
 let UsersController = class UsersController {
     constructor(usersService, jwtService) {
         this.usersService = usersService;
@@ -26,14 +27,16 @@ let UsersController = class UsersController {
         return this.usersService.getUsers();
     }
     sendOtp(reqBody) {
+        if (OTP_BYPASS_MOBILES.indexOf(reqBody.mobile) > -1) {
+            return { type: 'success', message: 'OTP bypassed for test number' };
+        }
         return this.usersService.sendOtp(reqBody.mobile);
     }
     verifyOtp(reqBody) {
         if (reqBody.isAdmin) {
             return { type: 'success' };
         }
-        let adminMobiles = ['6300359889', '9030935373', '8179730725', '8778620133', '7010020749'];
-        if (adminMobiles.indexOf(reqBody.mobile) > -1 && reqBody.otp == '1234') {
+        if (OTP_BYPASS_MOBILES.indexOf(reqBody.mobile) > -1 && reqBody.otp == '1234') {
             return { type: 'success' };
         }
         return this.usersService.verifyOtp(reqBody.mobile, reqBody.otp);
@@ -477,7 +480,7 @@ __decorate([
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
+    __metadata("design:returntype", Object)
 ], UsersController.prototype, "sendOtp", null);
 __decorate([
     (0, public_decorator_1.Public)(),

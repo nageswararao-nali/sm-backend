@@ -7,7 +7,7 @@ export declare class UsersController {
     private jwtService;
     constructor(usersService: UsersService, jwtService: JwtService);
     getUsers(): Promise<Observable<Users[]>>;
-    sendOtp(reqBody: any): Promise<Observable<any>>;
+    sendOtp(reqBody: any): Promise<Observable<any>> | any;
     verifyOtp(reqBody: any): Promise<any> | {
         type: string;
     };
