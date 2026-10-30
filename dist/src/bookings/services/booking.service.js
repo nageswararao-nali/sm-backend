@@ -3585,8 +3585,13 @@ Please find attached the report.
         console.log('[DISPATCH] acceptDispatch: winner driver_id=' + driver_id + ', found ' + losers.length + ' other pending candidate(s) for multi_booking_id=' + multi_booking_id);
         if (losers.length) {
             await this.dispatchCandidateRepo.update({ multi_booking_id, status: 'pending' }, { status: 'lost', responded_at: new Date() });
-            const loserTokens = losers.map(l => l.push_token).filter(Boolean);
-            console.log('[DISPATCH] acceptDispatch: loser driver_id(s)=' + JSON.stringify(losers.map(l => l.driver_id)) + ', with push_token=' + JSON.stringify(losers.map(l => !!l.push_token)));
+            const loserTokens = [];
+            for (const loser of losers) {
+                const rawPushToken = await this.utilService.getDeviceToken(loser.driver_id);
+                const driverTokens = rawPushToken ? rawPushToken.split(',').map((t) => t.trim()).filter(Boolean) : [];
+                loserTokens.push(...driverTokens);
+            }
+            console.log('[DISPATCH] acceptDispatch: loser driver_id(s)=' + JSON.stringify(losers.map(l => l.driver_id)) + ', resolved ' + loserTokens.length + ' current push token(s)');
             if (loserTokens.length) {
                 console.log('[DISPATCH] acceptDispatch: sending DISPATCH_CLOSED to ' + loserTokens.length + ' token(s)');
                 await this.utilService.sendPushNotification('Booking no longer available', 'This booking has already been accepted by another driver.', loserTokens, { type: 'DISPATCH_CLOSED', multiBookingId: multi_booking_id }, true);

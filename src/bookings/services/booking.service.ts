@@ -4462,8 +4462,20 @@ Please find attached the report.
                 { multi_booking_id, status: 'pending' },
                 { status: 'lost', responded_at: new Date() }
             );
-            const loserTokens = losers.map(l => l.push_token).filter(Boolean);
-            console.log('[DISPATCH] acceptDispatch: loser driver_id(s)='+JSON.stringify(losers.map(l => l.driver_id))+', with push_token='+JSON.stringify(losers.map(l => !!l.push_token)))
+            // Re-split each loser's CURRENT device_token here rather than trusting the
+            // candidate row's stored push_token - that column only ever holds the first of
+            // possibly several comma-joined tokens (see broadcastMultiBooking's matching
+            // note: device_token accumulates one token per reinstall/relogin and never
+            // dedupes), so a driver who has reinstalled since the original broadcast would
+            // have a stale, undeliverable token stored there while their current token sits
+            // later in the same comma list.
+            const loserTokens: string[] = [];
+            for (const loser of losers) {
+                const rawPushToken = await this.utilService.getDeviceToken(loser.driver_id);
+                const driverTokens = rawPushToken ? rawPushToken.split(',').map((t: string) => t.trim()).filter(Boolean) : [];
+                loserTokens.push(...driverTokens);
+            }
+            console.log('[DISPATCH] acceptDispatch: loser driver_id(s)='+JSON.stringify(losers.map(l => l.driver_id))+', resolved '+loserTokens.length+' current push token(s)')
             if (loserTokens.length) {
                 // silent (see broadcastMultiBooking's matching note) so this reaches the
                 // background task directly instead of the OS auto-displaying a second,
