@@ -18,6 +18,7 @@ export declare class BookingController {
     }>;
     acceptDispatch(reqBody: any): Promise<any>;
     declineDispatch(reqBody: any): Promise<any>;
+    rebroadcastDispatch(reqBody: any): Promise<any>;
     updateBooking(id: number, reqBody: any): Promise<{
         success: boolean;
         data: {};

@@ -3454,6 +3454,23 @@ Please find attached the report.
         }
         return drivers;
     }
+    async rebroadcastDispatch(reqBody) {
+        const { multi_booking_id } = reqBody;
+        if (!multi_booking_id) {
+            return { success: false, message: 'multi_booking_id is required' };
+        }
+        const legs = await this.bookingRepo.find({ where: { multi_booking_id }, order: { id: 'ASC' } });
+        if (!legs.length) {
+            return { success: false, message: 'No bookings found for this multi_booking_id' };
+        }
+        const existingDispatchRow = await this.dispatchRepo.findOneBy({ multi_booking_id });
+        if ((existingDispatchRow === null || existingDispatchRow === void 0 ? void 0 : existingDispatchRow.status) === 'assigned') {
+            return { success: false, message: 'This booking has already been accepted by a driver' };
+        }
+        const firstLeg = legs[0];
+        await this.broadcastMultiBooking(multi_booking_id, legs, { vehicle_type: firstLeg.vehicle_type, trip_type: firstLeg.trip_type });
+        return { success: true, message: 'Re-broadcast to nearby drivers' };
+    }
     async broadcastMultiBooking(multiBookingId, legs, reqBody) {
         try {
             console.log('[DISPATCH] broadcastMultiBooking: start multiBookingId=' + multiBookingId + ' legs=' + legs.length);
@@ -3477,11 +3494,24 @@ Please find attached the report.
                 return;
             }
             const expiresAt = moment().add(30, 'seconds').toDate();
-            await this.dispatchRepo.save({
-                multi_booking_id: multiBookingId,
-                status: 'broadcasting',
-                expires_at: expiresAt,
-            });
+            const existingDispatchRow = await this.dispatchRepo.findOneBy({ multi_booking_id: multiBookingId });
+            if (existingDispatchRow) {
+                await this.dispatchRepo.update({ id: existingDispatchRow.id }, {
+                    status: 'broadcasting',
+                    expires_at: expiresAt,
+                    winner_driver_id: null,
+                    winner_truck_id: null,
+                    winner_truck_owner_id: null,
+                    tour_id: null,
+                });
+            }
+            else {
+                await this.dispatchRepo.save({
+                    multi_booking_id: multiBookingId,
+                    status: 'broadcasting',
+                    expires_at: expiresAt,
+                });
+            }
             console.log('[DISPATCH] broadcastMultiBooking: saved booking_dispatch row, status=broadcasting');
             const isMultiPickup = reqBody.trip_type === 'multipickup';
             const isMultiDrop = reqBody.trip_type === 'multidrop';
@@ -3491,9 +3521,13 @@ Please find attached the report.
             const candidateRows = [];
             for (const driver of drivers) {
                 const driverEntity = await this.driverRepo.findOneBy({ user_id: driver.driver_id });
-                console.log('[DISPATCH] candidate driver_id=' + driver.driver_id + ': drivers-table match = ' + (!!driverEntity));
+                console.log('[DISPATCH] candidate driver_id=' + driver.driver_id + ': drivers-table match = ' + (!!driverEntity) + ', status = ' + (driverEntity === null || driverEntity === void 0 ? void 0 : driverEntity.status));
                 if (!driverEntity)
                     continue;
+                if (driverEntity.status === 'Engaged') {
+                    console.log('[DISPATCH] candidate driver_id=' + driver.driver_id + ': skipped, already engaged on another tour');
+                    continue;
+                }
                 const rawPushToken = await this.utilService.getDeviceToken(driver.driver_id);
                 const driverTokens = rawPushToken ? rawPushToken.split(',').map((t) => t.trim()).filter(Boolean) : [];
                 console.log('[DISPATCH] candidate driver_id=' + driver.driver_id + ': push token(s) = ' + (driverTokens.length ? JSON.stringify(driverTokens) : 'NONE'));
@@ -3552,7 +3586,7 @@ Please find attached the report.
             await this.dispatchCandidateRepo.update({ multi_booking_id, status: 'pending' }, { status: 'lost', responded_at: new Date() });
             const loserTokens = losers.map(l => l.push_token).filter(Boolean);
             if (loserTokens.length) {
-                await this.utilService.sendPushNotification('Booking no longer available', 'This booking has already been accepted by another driver.', loserTokens, { type: 'DISPATCH_CLOSED', multiBookingId: multi_booking_id });
+                await this.utilService.sendPushNotification('Booking no longer available', 'This booking has already been accepted by another driver.', loserTokens, { type: 'DISPATCH_CLOSED', multiBookingId: multi_booking_id }, true);
             }
         }
         const legs = await this.bookingRepo.find({ where: { multi_booking_id }, order: { id: 'ASC' } });

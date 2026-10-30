@@ -152,6 +152,7 @@ export declare class BookingService {
     driverDaySummaryManuel(reqBody: any): Promise<any>;
     genCSV(): Promise<any>;
     findNearbyDrivers(lat: any, lng: any, radiusKm: number, vehicleType: string): Promise<any>;
+    rebroadcastDispatch(reqBody: any): Promise<any>;
     broadcastMultiBooking(multiBookingId: string, legs: BookingEntity[], reqBody: any): Promise<any>;
     acceptDispatch(reqBody: any): Promise<any>;
     declineDispatch(reqBody: any): Promise<any>;

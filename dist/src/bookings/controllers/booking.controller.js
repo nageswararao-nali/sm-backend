@@ -80,6 +80,9 @@ let BookingController = class BookingController {
     async declineDispatch(reqBody) {
         return await this.bookingService.declineDispatch(reqBody);
     }
+    async rebroadcastDispatch(reqBody) {
+        return await this.bookingService.rebroadcastDispatch(reqBody);
+    }
     async updateBooking(id, reqBody) {
         let response = {
             success: true,
@@ -1005,6 +1008,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], BookingController.prototype, "declineDispatch", null);
+__decorate([
+    (0, common_1.Post)('rebroadcastDispatch'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], BookingController.prototype, "rebroadcastDispatch", null);
 __decorate([
     (0, common_1.Post)('updateBooking/:id'),
     __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),

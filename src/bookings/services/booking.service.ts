@@ -4286,9 +4286,33 @@ Please find attached the report.
         return drivers;
     }
 
+    // Manager-interface's manual "re-broadcast" action for a booking nobody accepted (the
+    // dispatch expired with no acceptance, or a manager just wants to retry). Re-derives
+    // everything from the bookings table itself rather than requiring the original request
+    // body, so it can be triggered at any time from the bookings list, not just right after
+    // creation.
+    async rebroadcastDispatch(reqBody: any): Promise<any> {
+        const { multi_booking_id } = reqBody;
+        if (!multi_booking_id) {
+            return { success: false, message: 'multi_booking_id is required' };
+        }
+        const legs = await this.bookingRepo.find({ where: { multi_booking_id }, order: { id: 'ASC' } });
+        if (!legs.length) {
+            return { success: false, message: 'No bookings found for this multi_booking_id' };
+        }
+        const existingDispatchRow = await this.dispatchRepo.findOneBy({ multi_booking_id });
+        if (existingDispatchRow?.status === 'assigned') {
+            return { success: false, message: 'This booking has already been accepted by a driver' };
+        }
+        const firstLeg = legs[0];
+        await this.broadcastMultiBooking(multi_booking_id, legs, { vehicle_type: firstLeg.vehicle_type, trip_type: firstLeg.trip_type });
+        return { success: true, message: 'Re-broadcast to nearby drivers' };
+    }
+
     // Broadcasts a just-created multi_booking_id group to every eligible on-duty driver.
-    // Called from addMultiBooking once all leg rows are saved - never throws, since a
-    // broadcast failure must not fail the booking-creation response.
+    // Called from addMultiBooking once all leg rows are saved, and from rebroadcastDispatch
+    // for a manual retry - never throws, since a broadcast failure must not fail the
+    // booking-creation response.
     async broadcastMultiBooking(multiBookingId: string, legs: BookingEntity[], reqBody: any): Promise<any> {
         try {
             console.log('[DISPATCH] broadcastMultiBooking: start multiBookingId='+multiBookingId+' legs='+legs.length)
@@ -4314,11 +4338,28 @@ Please find attached the report.
             }
 
             const expiresAt = moment().add(30, 'seconds').toDate();
-            await this.dispatchRepo.save({
-                multi_booking_id: multiBookingId,
-                status: 'broadcasting',
-                expires_at: expiresAt,
-            });
+            // upsert rather than always save() a new row - this function is also called
+            // for a manual re-broadcast (rebroadcastDispatch) on a multi_booking_id that
+            // already has a row from the original attempt; inserting a second row would
+            // break acceptDispatch's "exactly one booking_dispatch row per group" atomic
+            // UPDATE and the final winner_* update at the end of acceptDispatch.
+            const existingDispatchRow = await this.dispatchRepo.findOneBy({multi_booking_id: multiBookingId});
+            if (existingDispatchRow) {
+                await this.dispatchRepo.update({id: existingDispatchRow.id}, {
+                    status: 'broadcasting',
+                    expires_at: expiresAt,
+                    winner_driver_id: null,
+                    winner_truck_id: null,
+                    winner_truck_owner_id: null,
+                    tour_id: null,
+                });
+            } else {
+                await this.dispatchRepo.save({
+                    multi_booking_id: multiBookingId,
+                    status: 'broadcasting',
+                    expires_at: expiresAt,
+                });
+            }
             console.log('[DISPATCH] broadcastMultiBooking: saved booking_dispatch row, status=broadcasting')
 
             // de-duplicate the shared stop: multipickup shares one drop, multidrop shares one pickup
@@ -4333,8 +4374,19 @@ Please find attached the report.
                 // driver_last_location_details.driver_id is actually a user_id, see
                 // driver.service.ts's updateDriverLastLocDetails (saves reqBody.user_id here)
                 const driverEntity = await this.driverRepo.findOneBy({user_id: driver.driver_id});
-                console.log('[DISPATCH] candidate driver_id='+driver.driver_id+': drivers-table match = '+(!!driverEntity))
+                console.log('[DISPATCH] candidate driver_id='+driver.driver_id+': drivers-table match = '+(!!driverEntity)+', status = '+driverEntity?.status)
                 if (!driverEntity) continue;
+                // users.is_available (which gates whether a row even exists in
+                // driver_last_location_details, see findNearbyDrivers) and drivers.status
+                // are separate concepts - a driver can be marked available while still
+                // mid-tour (acceptTour sets status: 'Engaged' but never touches
+                // is_available). Without this check an already-engaged driver could be
+                // dispatched a second booking and double-booked. completeTour resets
+                // status back to 'Available' when the tour finishes, from either app.
+                if (driverEntity.status === 'Engaged') {
+                    console.log('[DISPATCH] candidate driver_id='+driver.driver_id+': skipped, already engaged on another tour')
+                    continue;
+                }
                 // device_token can hold several comma-joined tokens (one per device/
                 // re-login, see users.service.ts's updateDeviceToken, which only ever
                 // appends and never dedupes/replaces) - split before using any of them,
@@ -4411,11 +4463,17 @@ Please find attached the report.
             );
             const loserTokens = losers.map(l => l.push_token).filter(Boolean);
             if (loserTokens.length) {
+                // silent (see broadcastMultiBooking's matching note) so this reaches the
+                // background task directly instead of the OS auto-displaying a second,
+                // separate notification alongside the still-ringing one - the client cancels
+                // the existing ringing notification itself rather than this push displaying
+                // any notification of its own.
                 await this.utilService.sendPushNotification(
                     'Booking no longer available',
                     'This booking has already been accepted by another driver.',
                     loserTokens,
-                    { type: 'DISPATCH_CLOSED', multiBookingId: multi_booking_id }
+                    { type: 'DISPATCH_CLOSED', multiBookingId: multi_booking_id },
+                    true
                 );
             }
         }

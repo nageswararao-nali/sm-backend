@@ -74,6 +74,11 @@ export class BookingController {
         return await this.bookingService.declineDispatch(reqBody)
     }
 
+    @Post('rebroadcastDispatch')
+    async rebroadcastDispatch(@Body() reqBody: any) {
+        return await this.bookingService.rebroadcastDispatch(reqBody)
+    }
+
     @Post('updateBooking/:id')
     async updateBooking(@Param('id', ParseIntPipe) id: number, @Body() reqBody: any) {
         let response = {
